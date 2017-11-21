@@ -13,10 +13,10 @@ namespace DATABASE.MODELS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TourDuLichEntities : DbContext
+    public partial class TourDuLichEntities1 : DbContext
     {
-        public TourDuLichEntities()
-            : base("name=TourDuLichEntities")
+        public TourDuLichEntities1()
+            : base("name=TourDuLichEntities1")
         {
         }
     
@@ -39,7 +39,6 @@ namespace DATABASE.MODELS
         public virtual DbSet<TinhThanh> TinhThanh { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
         public virtual DbSet<Tour_DiaDiem> Tour_DiaDiem { get; set; }
-        public virtual DbSet<Tour_Gia> Tour_Gia { get; set; }
         public virtual DbSet<Tour_KhachSan> Tour_KhachSan { get; set; }
         public virtual DbSet<Tour_QuanAn> Tour_QuanAn { get; set; }
         public virtual DbSet<Xe> Xe { get; set; }

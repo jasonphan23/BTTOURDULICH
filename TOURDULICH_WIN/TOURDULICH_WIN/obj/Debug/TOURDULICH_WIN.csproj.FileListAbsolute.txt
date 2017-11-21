@@ -7,3 +7,7 @@ E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\obj\Debug\TOURDULICH_WIN.P
 E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\obj\Debug\TOURDULICH_WIN.csproj.GenerateResource.Cache
 E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\obj\Debug\TOURDULICH_WIN.exe
 E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\obj\Debug\TOURDULICH_WIN.pdb
+E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\bin\Debug\DATABASE.dll
+E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\bin\Debug\EntityFramework.dll
+E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\bin\Debug\DATABASE.pdb
+E:\cái lồn mẹ mày\TOURDULICH_WIN\TOURDULICH_WIN\bin\Debug\EntityFramework.xml

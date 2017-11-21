@@ -19,7 +19,6 @@ namespace DATABASE.MODELS
         public int TongCPKS { get; set; }
         public int TongCPPT { get; set; }
         public int TongCPBA { get; set; }
-        public Nullable<int> CPKhac { get; set; }
         public string GhiChu { get; set; }
     
         public virtual Doan Doan { get; set; }

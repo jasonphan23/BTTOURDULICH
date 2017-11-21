@@ -16,5 +16,15 @@ namespace TOURDULICH_WIN
         {
             InitializeComponent();
         }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox7_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

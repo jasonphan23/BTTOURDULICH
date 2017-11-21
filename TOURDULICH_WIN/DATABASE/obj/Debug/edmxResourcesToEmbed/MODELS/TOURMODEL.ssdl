@@ -1,0 +1,510 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TourDuLichModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CTDoan">
+    <Key>
+      <PropertyRef Name="MaCTDoan" />
+    </Key>
+    <Property Name="MaCTDoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDoan" Type="int" Nullable="false" />
+    <Property Name="TongCPKS" Type="int" Nullable="false" />
+    <Property Name="TongCPPT" Type="int" Nullable="false" />
+    <Property Name="TongCPBA" Type="int" Nullable="false" />
+    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ChucVu">
+    <Key>
+      <PropertyRef Name="MaCV" />
+    </Key>
+    <Property Name="MaCV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DangKi">
+    <Key>
+      <PropertyRef Name="MaDK" />
+    </Key>
+    <Property Name="MaDK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDoan" Type="int" Nullable="false" />
+    <Property Name="MaKH" Type="int" Nullable="false" />
+    <Property Name="NgayDK" Type="date" Nullable="false" />
+    <Property Name="GiaDangKi" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DiaDiem">
+    <Key>
+      <PropertyRef Name="MaDD" />
+    </Key>
+    <Property Name="MaDD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="TinhThanh" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Doan">
+    <Key>
+      <PropertyRef Name="MaDoan" />
+    </Key>
+    <Property Name="MaDoan" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="SLKhach" Type="int" Nullable="false" />
+    <Property Name="SLNV" Type="int" Nullable="false" />
+    <Property Name="MaTour" Type="int" Nullable="false" />
+    <Property Name="MaXe" Type="int" Nullable="false" />
+    <Property Name="GiaXe" Type="int" Nullable="false" />
+    <Property Name="TruongDoan" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="GioiTinh" Type="bit" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" Nullable="false" />
+    <Property Name="SoDT" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="CMND" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="QuocTich" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="30" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KhachSan">
+    <Key>
+      <PropertyRef Name="MaKS" />
+    </Key>
+    <Property Name="MaKS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MaDD" Type="int" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LoaiHinhDL">
+    <Key>
+      <PropertyRef Name="MaLHDL" />
+    </Key>
+    <Property Name="MaLHDL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NhanVien">
+    <Key>
+      <PropertyRef Name="MaNV" />
+    </Key>
+    <Property Name="MaNV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="GioiTinh" Type="bit" Nullable="false" />
+    <Property Name="NgaySinh" Type="date" Nullable="false" />
+    <Property Name="SoDT" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="CMND" Type="nchar" MaxLength="30" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="30" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PhanCong">
+    <Key>
+      <PropertyRef Name="MaPC" />
+    </Key>
+    <Property Name="MaPC" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaDoan" Type="int" Nullable="false" />
+    <Property Name="MaNV" Type="int" Nullable="false" />
+    <Property Name="MaCV" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="QuanAn">
+    <Key>
+      <PropertyRef Name="MaQA" />
+    </Key>
+    <Property Name="MaQA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MaDD" Type="int" Nullable="false" />
+    <Property Name="DiaChi" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TinhThanh">
+    <Key>
+      <PropertyRef Name="MaTT" />
+    </Key>
+    <Property Name="MaTT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tour">
+    <Key>
+      <PropertyRef Name="MaTour" />
+    </Key>
+    <Property Name="MaTour" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Ten" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="DiemKhoiHanh" Type="int" Nullable="false" />
+    <Property Name="DiemKetThuc" Type="int" Nullable="false" />
+    <Property Name="SLNgay" Type="int" Nullable="false" />
+    <Property Name="LoaiHinhDL" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+    <Property Name="Gia" Type="float" Nullable="false" />
+    <Property Name="NoiDung" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Tour_DiaDiem">
+    <Key>
+      <PropertyRef Name="MaTDD" />
+    </Key>
+    <Property Name="MaTDD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTour" Type="int" Nullable="false" />
+    <Property Name="MaDD" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tour_KhachSan">
+    <Key>
+      <PropertyRef Name="MaTKS" />
+    </Key>
+    <Property Name="MaTKS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTour" Type="int" Nullable="false" />
+    <Property Name="MaKS" Type="int" Nullable="false" />
+    <Property Name="Gia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tour_QuanAn">
+    <Key>
+      <PropertyRef Name="MaTQA" />
+    </Key>
+    <Property Name="MaTQA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MaTour" Type="int" Nullable="false" />
+    <Property Name="MaQA" Type="int" Nullable="false" />
+    <Property Name="Gia" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Xe">
+    <Key>
+      <PropertyRef Name="MaXe" />
+    </Key>
+    <Property Name="MaXe" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BienSoXe" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="SLCho" Type="int" Nullable="false" />
+    <Property Name="TrangThai" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CTDoan__MaDoan__2F10007B">
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="CTDoan" Type="Self.CTDoan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doan">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="CTDoan">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DangKi__MaDoan__300424B4">
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="DangKi" Type="Self.DangKi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doan">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="DangKi">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DangKi__MaKH__30F848ED">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="DangKi" Type="Self.DangKi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="DangKi">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__DiaDiem__TinhTha__31EC6D26">
+    <End Role="TinhThanh" Type="Self.TinhThanh" Multiplicity="1" />
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TinhThanh">
+        <PropertyRef Name="MaTT" />
+      </Principal>
+      <Dependent Role="DiaDiem">
+        <PropertyRef Name="TinhThanh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Doan__MaXe__32E0915F">
+    <End Role="Xe" Type="Self.Xe" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Xe">
+        <PropertyRef Name="MaXe" />
+      </Principal>
+      <Dependent Role="Doan">
+        <PropertyRef Name="MaXe" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Doan__TruongDoan__33D4B598">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="Doan">
+        <PropertyRef Name="TruongDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__KhachSan__MaDD__34C8D9D1">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="KhachSan" Type="Self.KhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="KhachSan">
+        <PropertyRef Name="MaDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhanCong__MaCV__35BCFE0A">
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
+    <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChucVu">
+        <PropertyRef Name="MaCV" />
+      </Principal>
+      <Dependent Role="PhanCong">
+        <PropertyRef Name="MaCV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhanCong__MaDoan__36B12243">
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doan">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="PhanCong">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PhanCong__MaNV__37A5467C">
+    <End Role="NhanVien" Type="Self.NhanVien" Multiplicity="1" />
+    <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanVien">
+        <PropertyRef Name="MaNV" />
+      </Principal>
+      <Dependent Role="PhanCong">
+        <PropertyRef Name="MaNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__QuanAn__MaDD__38996AB5">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="QuanAn" Type="Self.QuanAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="QuanAn">
+        <PropertyRef Name="MaDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour__DiemKetThu__398D8EEE">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="Tour">
+        <PropertyRef Name="DiemKetThuc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour__DiemKhoiHa__3A81B327">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="Tour">
+        <PropertyRef Name="DiemKhoiHanh" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour__LoaiHinhDL__3B75D760">
+    <End Role="LoaiHinhDL" Type="Self.LoaiHinhDL" Multiplicity="1" />
+    <End Role="Tour" Type="Self.Tour" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LoaiHinhDL">
+        <PropertyRef Name="MaLHDL" />
+      </Principal>
+      <Dependent Role="Tour">
+        <PropertyRef Name="LoaiHinhDL" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_DiaD__MaTou__3C69FB99">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+    <End Role="Tour_DiaDiem" Type="Self.Tour_DiaDiem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="MaTour" />
+      </Principal>
+      <Dependent Role="Tour_DiaDiem">
+        <PropertyRef Name="MaTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_DiaDi__MaDD__3D5E1FD2">
+    <End Role="DiaDiem" Type="Self.DiaDiem" Multiplicity="1" />
+    <End Role="Tour_DiaDiem" Type="Self.Tour_DiaDiem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DiaDiem">
+        <PropertyRef Name="MaDD" />
+      </Principal>
+      <Dependent Role="Tour_DiaDiem">
+        <PropertyRef Name="MaDD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_Khac__MaTou__3E52440B">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+    <End Role="Tour_KhachSan" Type="Self.Tour_KhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="MaTour" />
+      </Principal>
+      <Dependent Role="Tour_KhachSan">
+        <PropertyRef Name="MaTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_Khach__MaKS__3F466844">
+    <End Role="KhachSan" Type="Self.KhachSan" Multiplicity="1" />
+    <End Role="Tour_KhachSan" Type="Self.Tour_KhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachSan">
+        <PropertyRef Name="MaKS" />
+      </Principal>
+      <Dependent Role="Tour_KhachSan">
+        <PropertyRef Name="MaKS" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_Quan__MaTou__403A8C7D">
+    <End Role="Tour" Type="Self.Tour" Multiplicity="1" />
+    <End Role="Tour_QuanAn" Type="Self.Tour_QuanAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tour">
+        <PropertyRef Name="MaTour" />
+      </Principal>
+      <Dependent Role="Tour_QuanAn">
+        <PropertyRef Name="MaTour" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Tour_QuanA__MaQA__412EB0B6">
+    <End Role="QuanAn" Type="Self.QuanAn" Multiplicity="1" />
+    <End Role="Tour_QuanAn" Type="Self.Tour_QuanAn" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="QuanAn">
+        <PropertyRef Name="MaQA" />
+      </Principal>
+      <Dependent Role="Tour_QuanAn">
+        <PropertyRef Name="MaQA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TourDuLichModelStoreContainer">
+    <EntitySet Name="CTDoan" EntityType="Self.CTDoan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChucVu" EntityType="Self.ChucVu" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DangKi" EntityType="Self.DangKi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DiaDiem" EntityType="Self.DiaDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doan" EntityType="Self.Doan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachSan" EntityType="Self.KhachSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LoaiHinhDL" EntityType="Self.LoaiHinhDL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanVien" EntityType="Self.NhanVien" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhanCong" EntityType="Self.PhanCong" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="QuanAn" EntityType="Self.QuanAn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TinhThanh" EntityType="Self.TinhThanh" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tour_DiaDiem" EntityType="Self.Tour_DiaDiem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tour_KhachSan" EntityType="Self.Tour_KhachSan" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tour_QuanAn" EntityType="Self.Tour_QuanAn" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Xe" EntityType="Self.Xe" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CTDoan__MaDoan__2F10007B" Association="Self.FK__CTDoan__MaDoan__2F10007B">
+      <End Role="Doan" EntitySet="Doan" />
+      <End Role="CTDoan" EntitySet="CTDoan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DangKi__MaDoan__300424B4" Association="Self.FK__DangKi__MaDoan__300424B4">
+      <End Role="Doan" EntitySet="Doan" />
+      <End Role="DangKi" EntitySet="DangKi" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DangKi__MaKH__30F848ED" Association="Self.FK__DangKi__MaKH__30F848ED">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="DangKi" EntitySet="DangKi" />
+    </AssociationSet>
+    <AssociationSet Name="FK__DiaDiem__TinhTha__31EC6D26" Association="Self.FK__DiaDiem__TinhTha__31EC6D26">
+      <End Role="TinhThanh" EntitySet="TinhThanh" />
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Doan__MaXe__32E0915F" Association="Self.FK__Doan__MaXe__32E0915F">
+      <End Role="Xe" EntitySet="Xe" />
+      <End Role="Doan" EntitySet="Doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Doan__TruongDoan__33D4B598" Association="Self.FK__Doan__TruongDoan__33D4B598">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="Doan" EntitySet="Doan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__KhachSan__MaDD__34C8D9D1" Association="Self.FK__KhachSan__MaDD__34C8D9D1">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="KhachSan" EntitySet="KhachSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhanCong__MaCV__35BCFE0A" Association="Self.FK__PhanCong__MaCV__35BCFE0A">
+      <End Role="ChucVu" EntitySet="ChucVu" />
+      <End Role="PhanCong" EntitySet="PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhanCong__MaDoan__36B12243" Association="Self.FK__PhanCong__MaDoan__36B12243">
+      <End Role="Doan" EntitySet="Doan" />
+      <End Role="PhanCong" EntitySet="PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PhanCong__MaNV__37A5467C" Association="Self.FK__PhanCong__MaNV__37A5467C">
+      <End Role="NhanVien" EntitySet="NhanVien" />
+      <End Role="PhanCong" EntitySet="PhanCong" />
+    </AssociationSet>
+    <AssociationSet Name="FK__QuanAn__MaDD__38996AB5" Association="Self.FK__QuanAn__MaDD__38996AB5">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="QuanAn" EntitySet="QuanAn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour__DiemKetThu__398D8EEE" Association="Self.FK__Tour__DiemKetThu__398D8EEE">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="Tour" EntitySet="Tour" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour__DiemKhoiHa__3A81B327" Association="Self.FK__Tour__DiemKhoiHa__3A81B327">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="Tour" EntitySet="Tour" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour__LoaiHinhDL__3B75D760" Association="Self.FK__Tour__LoaiHinhDL__3B75D760">
+      <End Role="LoaiHinhDL" EntitySet="LoaiHinhDL" />
+      <End Role="Tour" EntitySet="Tour" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_DiaD__MaTou__3C69FB99" Association="Self.FK__Tour_DiaD__MaTou__3C69FB99">
+      <End Role="Tour" EntitySet="Tour" />
+      <End Role="Tour_DiaDiem" EntitySet="Tour_DiaDiem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_DiaDi__MaDD__3D5E1FD2" Association="Self.FK__Tour_DiaDi__MaDD__3D5E1FD2">
+      <End Role="DiaDiem" EntitySet="DiaDiem" />
+      <End Role="Tour_DiaDiem" EntitySet="Tour_DiaDiem" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_Khac__MaTou__3E52440B" Association="Self.FK__Tour_Khac__MaTou__3E52440B">
+      <End Role="Tour" EntitySet="Tour" />
+      <End Role="Tour_KhachSan" EntitySet="Tour_KhachSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_Khach__MaKS__3F466844" Association="Self.FK__Tour_Khach__MaKS__3F466844">
+      <End Role="KhachSan" EntitySet="KhachSan" />
+      <End Role="Tour_KhachSan" EntitySet="Tour_KhachSan" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_Quan__MaTou__403A8C7D" Association="Self.FK__Tour_Quan__MaTou__403A8C7D">
+      <End Role="Tour" EntitySet="Tour" />
+      <End Role="Tour_QuanAn" EntitySet="Tour_QuanAn" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Tour_QuanA__MaQA__412EB0B6" Association="Self.FK__Tour_QuanA__MaQA__412EB0B6">
+      <End Role="QuanAn" EntitySet="QuanAn" />
+      <End Role="Tour_QuanAn" EntitySet="Tour_QuanAn" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
