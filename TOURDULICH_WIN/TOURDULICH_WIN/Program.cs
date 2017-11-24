@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using TOURDULICH_WIN.GUI;
 namespace TOURDULICH_WIN
 {
     static class Program
@@ -16,7 +16,7 @@ namespace TOURDULICH_WIN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Form2());
         }
     }
 }

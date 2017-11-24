@@ -50,83 +50,86 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="MODELS\ChucVu.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\CTDoan.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DangKi.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DiaDiem.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\KhachHang.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\KhachSan.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\LoaiHinhDL.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\NhanVien.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\PhanCong.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\QuanAn.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\TinhThanh.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURMODEL.Context.cs">
+    <Compile Include="MODELS\TOURDL.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURMODEL.Context.tt</DependentUpon>
+      <DependentUpon>TOURDL.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURMODEL.cs">
+    <Compile Include="MODELS\TOURDL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURMODEL.Designer.cs">
+    <Compile Include="MODELS\TOURDL.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURMODEL.edmx</DependentUpon>
+      <DependentUpon>TOURDL.edmx</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_DiaDiem.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\Tour_Gia.cs">
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_KhachSan.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_QuanAn.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Xe.cs">
-      <DependentUpon>TOURMODEL.tt</DependentUpon>
+      <DependentUpon>TOURDL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="REPOSITORY\Database.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="MODELS\TOURMODEL.edmx">
+    <EntityDeploy Include="MODELS\TOURDL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TOURMODEL.Designer.cs</LastGenOutput>
+      <LastGenOutput>TOURDL.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MODELS\TOURMODEL.edmx.diagram">
-      <DependentUpon>TOURMODEL.edmx</DependentUpon>
+    <None Include="MODELS\TOURDL.edmx.diagram">
+      <DependentUpon>TOURDL.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -134,17 +137,18 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MODELS\TOURMODEL.Context.tt">
+    <Content Include="MODELS\TOURDL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TOURMODEL.edmx</DependentUpon>
-      <LastGenOutput>TOURMODEL.Context.cs</LastGenOutput>
+      <DependentUpon>TOURDL.edmx</DependentUpon>
+      <LastGenOutput>TOURDL.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MODELS\TOURMODEL.tt">
+    <Content Include="MODELS\TOURDL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TOURMODEL.edmx</DependentUpon>
-      <LastGenOutput>TOURMODEL.cs</LastGenOutput>
+      <DependentUpon>TOURDL.edmx</DependentUpon>
+      <LastGenOutput>TOURDL.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

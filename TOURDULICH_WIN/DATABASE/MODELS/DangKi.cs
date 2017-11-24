@@ -18,7 +18,6 @@ namespace DATABASE.MODELS
         public int MaDoan { get; set; }
         public int MaKH { get; set; }
         public System.DateTime NgayDK { get; set; }
-        public double GiaDangKi { get; set; }
     
         public virtual Doan Doan { get; set; }
         public virtual KhachHang KhachHang { get; set; }
