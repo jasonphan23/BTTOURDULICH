@@ -13,10 +13,10 @@ namespace DATABASE.MODELS
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class TourDLEntities : DbContext
+    public partial class TourDuLichEntities : DbContext
     {
-        public TourDLEntities()
-            : base("name=TourDLEntities")
+        public TourDuLichEntities()
+            : base("name=TourDuLichEntities")
         {
         }
     
@@ -30,14 +30,14 @@ namespace DATABASE.MODELS
         public virtual DbSet<DangKi> DangKi { get; set; }
         public virtual DbSet<DiaDiem> DiaDiem { get; set; }
         public virtual DbSet<Doan> Doan { get; set; }
+        public virtual DbSet<Gia> Gia { get; set; }
         public virtual DbSet<KhachHang> KhachHang { get; set; }
-        public virtual DbSet<KhachSan> KhachSan { get; set; }
         public virtual DbSet<LoaiHinhDL> LoaiHinhDL { get; set; }
         public virtual DbSet<NhanVien> NhanVien { get; set; }
         public virtual DbSet<PhanCong> PhanCong { get; set; }
-        public virtual DbSet<QuanAn> QuanAn { get; set; }
         public virtual DbSet<TinhThanh> TinhThanh { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
+        public virtual DbSet<Tour_ChiPhiKhac> Tour_ChiPhiKhac { get; set; }
         public virtual DbSet<Tour_DiaDiem> Tour_DiaDiem { get; set; }
         public virtual DbSet<Tour_Gia> Tour_Gia { get; set; }
         public virtual DbSet<Tour_KhachSan> Tour_KhachSan { get; set; }

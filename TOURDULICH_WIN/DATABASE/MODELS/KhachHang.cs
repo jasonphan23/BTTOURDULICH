@@ -26,6 +26,7 @@ namespace DATABASE.MODELS
         public System.DateTime NgaySinh { get; set; }
         public string SoDT { get; set; }
         public string CMND { get; set; }
+        public string Passport { get; set; }
         public string QuocTich { get; set; }
         public string DiaChi { get; set; }
         public bool TrangThai { get; set; }

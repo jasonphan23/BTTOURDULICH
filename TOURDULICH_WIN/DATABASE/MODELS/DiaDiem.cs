@@ -17,11 +17,8 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public DiaDiem()
         {
-            this.KhachSan = new HashSet<KhachSan>();
-            this.QuanAn = new HashSet<QuanAn>();
             this.Tour = new HashSet<Tour>();
             this.Tour1 = new HashSet<Tour>();
-            this.Tour_DiaDiem = new HashSet<Tour_DiaDiem>();
         }
     
         public int MaDD { get; set; }
@@ -30,14 +27,8 @@ namespace DATABASE.MODELS
     
         public virtual TinhThanh TinhThanh1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KhachSan> KhachSan { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<QuanAn> QuanAn { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tour> Tour { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tour> Tour1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tour_DiaDiem> Tour_DiaDiem { get; set; }
     }
 }

@@ -12,13 +12,13 @@ namespace DATABASE.MODELS
     using System;
     using System.Collections.Generic;
     
-    public partial class Tour_DiaDiem
+    public partial class Gia
     {
-        public int MaTDD { get; set; }
+        public int MaGia { get; set; }
         public int MaTour { get; set; }
-        public string TenDiaDiem { get; set; }
-        public string DiaChi { get; set; }
-        public string GhiChu { get; set; }
+        public int Gia1 { get; set; }
+        public System.DateTime khoangTGBD { get; set; }
+        public System.DateTime khoangTGKT { get; set; }
     
         public virtual Tour Tour { get; set; }
     }

@@ -17,6 +17,7 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tour()
         {
+            this.Gia = new HashSet<Gia>();
             this.Tour_DiaDiem = new HashSet<Tour_DiaDiem>();
             this.Tour_Gia = new HashSet<Tour_Gia>();
             this.Tour_KhachSan = new HashSet<Tour_KhachSan>();
@@ -33,6 +34,8 @@ namespace DATABASE.MODELS
     
         public virtual DiaDiem DiaDiem { get; set; }
         public virtual DiaDiem DiaDiem1 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Gia> Gia { get; set; }
         public virtual LoaiHinhDL LoaiHinhDL1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tour_DiaDiem> Tour_DiaDiem { get; set; }

@@ -16,10 +16,11 @@ namespace DATABASE.MODELS
     {
         public int MaTQA { get; set; }
         public int MaTour { get; set; }
-        public int MaQA { get; set; }
+        public string Tenquan { get; set; }
         public int Gia { get; set; }
+        public string Diachi { get; set; }
+        public string GhiChu { get; set; }
     
-        public virtual QuanAn QuanAn { get; set; }
         public virtual Tour Tour { get; set; }
     }
 }

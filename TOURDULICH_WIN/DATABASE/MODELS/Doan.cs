@@ -20,6 +20,7 @@ namespace DATABASE.MODELS
             this.CTDoan = new HashSet<CTDoan>();
             this.DangKi = new HashSet<DangKi>();
             this.PhanCong = new HashSet<PhanCong>();
+            this.Tour_ChiPhiKhac = new HashSet<Tour_ChiPhiKhac>();
         }
     
         public int MaDoan { get; set; }
@@ -40,5 +41,7 @@ namespace DATABASE.MODELS
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhanCong> PhanCong { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tour_ChiPhiKhac> Tour_ChiPhiKhac { get; set; }
     }
 }

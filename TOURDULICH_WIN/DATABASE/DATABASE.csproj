@@ -51,85 +51,85 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MODELS\ChucVu.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\CTDoan.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DangKi.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DiaDiem.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\Gia.cs">
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\KhachHang.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\KhachSan.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\LoaiHinhDL.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\NhanVien.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\PhanCong.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\QuanAn.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\TinhThanh.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURDL.Context.cs">
+    <Compile Include="MODELS\TOURDULICHMODEL.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURDL.Context.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURDL.cs">
+    <Compile Include="MODELS\TOURDULICHMODEL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURDL.Designer.cs">
+    <Compile Include="MODELS\TOURDULICHMODEL.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURDL.edmx</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\Tour_ChiPhiKhac.cs">
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_DiaDiem.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_Gia.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_KhachSan.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_QuanAn.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Xe.cs">
-      <DependentUpon>TOURDL.tt</DependentUpon>
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="REPOSITORY\Database.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="MODELS\TOURDL.edmx">
+    <EntityDeploy Include="MODELS\TOURDULICHMODEL.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TOURDL.Designer.cs</LastGenOutput>
+      <LastGenOutput>TOURDULICHMODEL.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MODELS\TOURDL.edmx.diagram">
-      <DependentUpon>TOURDL.edmx</DependentUpon>
+    <None Include="MODELS\TOURDULICHMODEL.edmx.diagram">
+      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -137,18 +137,17 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MODELS\TOURDL.Context.tt">
+    <Content Include="MODELS\TOURDULICHMODEL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TOURDL.edmx</DependentUpon>
-      <LastGenOutput>TOURDL.Context.cs</LastGenOutput>
+      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
+      <LastGenOutput>TOURDULICHMODEL.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MODELS\TOURDL.tt">
+    <Content Include="MODELS\TOURDULICHMODEL.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TOURDL.edmx</DependentUpon>
-      <LastGenOutput>TOURDL.cs</LastGenOutput>
+      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
+      <LastGenOutput>TOURDULICHMODEL.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

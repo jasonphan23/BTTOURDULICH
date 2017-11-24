@@ -11,7 +11,7 @@ namespace DATABASE.REPOSITORY
 {
     public class Database<T> where T : class
     {
-        public TourDLEntities db = new TourDLEntities();
+        public TourDuLichEntities db = new TourDuLichEntities();
         public static string error_message = "";
         public List<T> GetList()
         {
