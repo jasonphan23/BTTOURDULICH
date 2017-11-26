@@ -9,8 +9,7 @@
           <ScalarProperty Name="TongCPKS" ColumnName="TongCPKS" />
           <ScalarProperty Name="TongCPPT" ColumnName="TongCPPT" />
           <ScalarProperty Name="TongCPBA" ColumnName="TongCPBA" />
-          <ScalarProperty Name="CPKhac" ColumnName="CPKhac" />
-          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+          <ScalarProperty Name="TongCPKhac" ColumnName="TongCPKhac" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -46,23 +45,55 @@
         <MappingFragment StoreEntitySet="Doan">
           <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
+          <ScalarProperty Name="MaTourGia" ColumnName="MaTourGia" />
           <ScalarProperty Name="SLKhach" ColumnName="SLKhach" />
           <ScalarProperty Name="SLNV" ColumnName="SLNV" />
-          <ScalarProperty Name="MaTourGia" ColumnName="MaTourGia" />
-          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
-          <ScalarProperty Name="GiaXe" ColumnName="GiaXe" />
+          <ScalarProperty Name="NgayKH" ColumnName="NgayKH" />
+          <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
+          <ScalarProperty Name="MoTaChiTiet" ColumnName="MoTaChiTiet" />
           <ScalarProperty Name="TruongDoan" ColumnName="TruongDoan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Gia">
-      <EntityTypeMapping TypeName="TourDuLichModel.Gia">
-        <MappingFragment StoreEntitySet="Gia">
-          <ScalarProperty Name="MaGia" ColumnName="MaGia" />
+    <EntitySetMapping Name="Doan_ChiPhiKhac">
+      <EntityTypeMapping TypeName="TourDuLichModel.Doan_ChiPhiKhac">
+        <MappingFragment StoreEntitySet="Doan_ChiPhiKhac">
+          <ScalarProperty Name="MaDCPK" ColumnName="MaDCPK" />
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="TenCPKhac" ColumnName="TenCPKhac" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doan_KhachSan">
+      <EntityTypeMapping TypeName="TourDuLichModel.Doan_KhachSan">
+        <MappingFragment StoreEntitySet="Doan_KhachSan">
+          <ScalarProperty Name="MaDKS" ColumnName="MaDKS" />
           <ScalarProperty Name="MaTour" ColumnName="MaTour" />
-          <ScalarProperty Name="Gia1" ColumnName="Gia" />
-          <ScalarProperty Name="khoangTGBD" ColumnName="khoangTGBD" />
-          <ScalarProperty Name="khoangTGKT" ColumnName="khoangTGKT" />
+          <ScalarProperty Name="TenKS" ColumnName="TenKS" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doan_PhuongTien">
+      <EntityTypeMapping TypeName="TourDuLichModel.Doan_PhuongTien">
+        <MappingFragment StoreEntitySet="Doan_PhuongTien">
+          <ScalarProperty Name="MaDPT" ColumnName="MaDPT" />
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="TenPT" ColumnName="TenPT" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doan_QuanAn">
+      <EntityTypeMapping TypeName="TourDuLichModel.Doan_QuanAn">
+        <MappingFragment StoreEntitySet="Doan_QuanAn">
+          <ScalarProperty Name="MaDQA" ColumnName="MaDQA" />
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
+          <ScalarProperty Name="TenQA" ColumnName="TenQA" />
+          <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -127,21 +158,10 @@
         <MappingFragment StoreEntitySet="Tour">
           <ScalarProperty Name="MaTour" ColumnName="MaTour" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="DiemKhoiHanh" ColumnName="DiemKhoiHanh" />
-          <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
           <ScalarProperty Name="SLNgay" ColumnName="SLNgay" />
+          <ScalarProperty Name="DacDiem" ColumnName="DacDiem" />
           <ScalarProperty Name="LoaiHinhDL" ColumnName="LoaiHinhDL" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tour_ChiPhiKhac">
-      <EntityTypeMapping TypeName="TourDuLichModel.Tour_ChiPhiKhac">
-        <MappingFragment StoreEntitySet="Tour_ChiPhiKhac">
-          <ScalarProperty Name="MaCPK" ColumnName="MaCPK" />
-          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
-          <ScalarProperty Name="TenCPKhac" ColumnName="TenCPKhac" />
-          <ScalarProperty Name="Gia" ColumnName="Gia" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -151,6 +171,7 @@
         <MappingFragment StoreEntitySet="Tour_DiaDiem">
           <ScalarProperty Name="MaTDD" ColumnName="MaTDD" />
           <ScalarProperty Name="MaTour" ColumnName="MaTour" />
+          <ScalarProperty Name="MaDD" ColumnName="MaDD" />
           <ScalarProperty Name="TenDiaDiem" ColumnName="TenDiaDiem" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
@@ -165,40 +186,6 @@
           <ScalarProperty Name="TGBD" ColumnName="TGBD" />
           <ScalarProperty Name="TGKT" ColumnName="TGKT" />
           <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tour_KhachSan">
-      <EntityTypeMapping TypeName="TourDuLichModel.Tour_KhachSan">
-        <MappingFragment StoreEntitySet="Tour_KhachSan">
-          <ScalarProperty Name="MaTKS" ColumnName="MaTKS" />
-          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
-          <ScalarProperty Name="TenKhachSan" ColumnName="TenKhachSan" />
-          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
-          <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Tour_QuanAn">
-      <EntityTypeMapping TypeName="TourDuLichModel.Tour_QuanAn">
-        <MappingFragment StoreEntitySet="Tour_QuanAn">
-          <ScalarProperty Name="MaTQA" ColumnName="MaTQA" />
-          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
-          <ScalarProperty Name="Tenquan" ColumnName="Tenquan" />
-          <ScalarProperty Name="Gia" ColumnName="Gia" />
-          <ScalarProperty Name="Diachi" ColumnName="Diachi" />
-          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Xe">
-      <EntityTypeMapping TypeName="TourDuLichModel.Xe">
-        <MappingFragment StoreEntitySet="Xe">
-          <ScalarProperty Name="MaXe" ColumnName="MaXe" />
-          <ScalarProperty Name="BienSoXe" ColumnName="BienSoXe" />
-          <ScalarProperty Name="SLCho" ColumnName="SLCho" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
         </MappingFragment>
       </EntityTypeMapping>

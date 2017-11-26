@@ -34,14 +34,6 @@ create table ChucVu
 	Ten nvarchar(30) not null,
 	primary key (MaCV) 
 )
-create table Xe
-(
-	MaXe int identity(1,1) not null,
-	BienSoXe nchar(20) not null,
-	SLCho int not null,
-	TrangThai bit not null,
-	primary key (MaXe) 
-)
 create table LoaiHinhDL
 (
 	MaLHDL int identity(1,1) not null,
@@ -67,26 +59,15 @@ create table Tour
 (
 	MaTour int identity(1,1) not null,
 	Ten nvarchar(30) not null,
-	DiemKhoiHanh int not null, 
-	DiemKetThuc int not null, 
 	SLNgay int not null,
+	DacDiem nvarchar(255),
 	LoaiHinhDL int not null,
 	TrangThai bit not null,
+	GhiChu nvarchar(50),
 	primary key (MaTour),
-	foreign key (DiemKhoiHanh) references DiaDiem(MaDD),
-	foreign key (DiemKetThuc) references DiaDiem(MaDD),
 	foreign key (LoaiHinhDL) references LoaiHinhDL(MaLHDL)
 )
-create table Gia
-(
-	MaGia int identity(1,1) not null,
-	MaTour int not null,
-	Gia int not null,
-	khoangTGBD date not null, -- khoang thoi gian lon
-	khoangTGKT date not null,
-	primary key (MaGia),
-	foreign key (MaTour) references Tour(MaTour)
-)
+
 create table Tour_Gia
 (
 	MaTourGia int identity(1,1) not null,
@@ -102,15 +83,15 @@ create table Doan
 (
 	MaDoan int identity(1,1) not null,
 	Ten nvarchar(30) not null,
+	MaTourGia int not null,
 	SLKhach int not null,
 	SLNV int not null,
-	MaTourGia int not null,
-	MaXe int not null,
-	GiaXe int not null,
+	NgayKH date not null, --ngay khoi hanh cua doan
+	NgayKT date not null, --ngay ket thuc di cua doan 
+	MoTaChiTiet nvarchar(255), -- chi tiet cua doan trong 1 tour
 	TruongDoan int not null, -- luu id nhan vien 
 	primary key (MaDoan),
 	foreign key (MaTourGia) references Tour_Gia(MaTourGia),
-	foreign key (MaXe) references Xe(MaXe),
 	foreign key (TruongDoan) references NhanVien(MaNV)
 )
 create table CTDoan
@@ -120,8 +101,7 @@ create table CTDoan
 	TongCPKS int not null,
 	TongCPPT int not null, --phuong tien
 	TongCPBA int not null, --bua an
-	CPKhac int,
-	GhiChu nvarchar(50),
+	TongCPKhac int,
 	primary key (MaCTDoan),
 	foreign key (MaDoan) references Doan(MaDoan)
 )
@@ -150,42 +130,50 @@ create table Tour_DiaDiem
 (
 	MaTDD int identity(1,1) not null,
 	MaTour int not null,
-	TenDiaDiem nvarchar(255),
+	MaDD int not null,
+	TenDiaDiem int not null,
 	DiaChi nvarchar(255),
-	GhiChu nvarchar(50),
+	GhiChu nvarchar(255),
 	primary key (MaTDD),
-	foreign key (MaTour) references Tour(MaTour)
-)
-create table Tour_KhachSan
-(
-	MaTKS int identity(1,1) not null,
-	MaTour int not null,
-	TenKhachSan nvarchar(255),
-	DiaChi nvarchar(255),
-	Gia int not null,
-	GhiChu nvarchar(50),
-	primary key (MaTKS),
-	foreign key (MaTour) references Tour(MaTour)
-)
-create table Tour_QuanAn
-(
-	MaTQA int identity(1,1) not null,
-	MaTour int not null,
-	Tenquan nvarchar(255),
-	Gia int not null,
-	Diachi nvarchar(50),
-	GhiChu nvarchar(50),
-	primary key (MaTQA),
 	foreign key (MaTour) references Tour(MaTour),
+	foreign key (MaDD) references DiaDiem(MaDD)
 )
-create table Tour_ChiPhiKhac
+create table Doan_KhachSan
 (
-	MaCPK int identity(1,1) not null,
+	MaDKS int identity(1,1) not null,
+	MaTour int not null,
+	TenKS nvarchar(30) not null,
+	Gia int not null,
+	DiaChi nvarchar(50),
+	primary key (MaDKS),
+	foreign key (MaTour) references Tour(MaTour)
+)
+create table Doan_QuanAn
+(
+	MaDQA int identity(1,1) not null,
+	MaDoan int not null,
+	TenQA nvarchar(30) not null,
+	Gia int not null,
+	DiaChi nvarchar(50),
+	primary key (MaDQA),
+	foreign key (MaDoan) references Doan(MaDoan),
+)
+create table Doan_PhuongTien
+(
+	MaDPT int identity(1,1) not null,
+	MaDoan int not null,
+	TenPT nvarchar(30) not null,
+	Gia int not null,
+	primary key (MaDPT),
+	foreign key (MaDoan) references Doan(MaDoan),
+)
+create table Doan_ChiPhiKhac
+(
+	MaDCPK int identity(1,1) not null,
 	MaDoan int not null,
 	TenCPKhac nvarchar(30),
 	Gia int not null,
-	GhiChu nvarchar(50),
-	primary key (MaCPK),
-	foreign key (MaDoan) references Doan(MaDoan)
+	primary key (MaDCPK),
+	foreign key (MaDoan) references Doan(MaDoan),
 )
 

@@ -16,10 +16,12 @@ namespace DATABASE.MODELS
     {
         public int MaTDD { get; set; }
         public int MaTour { get; set; }
-        public string TenDiaDiem { get; set; }
+        public int MaDD { get; set; }
+        public int TenDiaDiem { get; set; }
         public string DiaChi { get; set; }
         public string GhiChu { get; set; }
     
+        public virtual DiaDiem DiaDiem { get; set; }
         public virtual Tour Tour { get; set; }
     }
 }

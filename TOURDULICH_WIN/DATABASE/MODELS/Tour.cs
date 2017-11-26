@@ -17,33 +17,25 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tour()
         {
-            this.Gia = new HashSet<Gia>();
+            this.Doan_KhachSan = new HashSet<Doan_KhachSan>();
             this.Tour_DiaDiem = new HashSet<Tour_DiaDiem>();
             this.Tour_Gia = new HashSet<Tour_Gia>();
-            this.Tour_KhachSan = new HashSet<Tour_KhachSan>();
-            this.Tour_QuanAn = new HashSet<Tour_QuanAn>();
         }
     
         public int MaTour { get; set; }
         public string Ten { get; set; }
-        public int DiemKhoiHanh { get; set; }
-        public int DiemKetThuc { get; set; }
         public int SLNgay { get; set; }
+        public string DacDiem { get; set; }
         public int LoaiHinhDL { get; set; }
         public bool TrangThai { get; set; }
+        public string GhiChu { get; set; }
     
-        public virtual DiaDiem DiaDiem { get; set; }
-        public virtual DiaDiem DiaDiem1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Gia> Gia { get; set; }
+        public virtual ICollection<Doan_KhachSan> Doan_KhachSan { get; set; }
         public virtual LoaiHinhDL LoaiHinhDL1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tour_DiaDiem> Tour_DiaDiem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tour_Gia> Tour_Gia { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tour_KhachSan> Tour_KhachSan { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tour_QuanAn> Tour_QuanAn { get; set; }
     }
 }

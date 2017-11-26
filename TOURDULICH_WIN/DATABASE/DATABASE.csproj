@@ -65,7 +65,16 @@
     <Compile Include="MODELS\Doan.cs">
       <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\Gia.cs">
+    <Compile Include="MODELS\Doan_ChiPhiKhac.cs">
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\Doan_KhachSan.cs">
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\Doan_PhuongTien.cs">
+      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\Doan_QuanAn.cs">
       <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\KhachHang.cs">
@@ -101,22 +110,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\Tour_ChiPhiKhac.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
-    </Compile>
     <Compile Include="MODELS\Tour_DiaDiem.cs">
       <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_Gia.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\Tour_KhachSan.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\Tour_QuanAn.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\Xe.cs">
       <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +133,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="MODELS\TOURDULICHMODEL.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

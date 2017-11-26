@@ -12,14 +12,14 @@ namespace DATABASE.MODELS
     using System;
     using System.Collections.Generic;
     
-    public partial class Gia
+    public partial class Doan_QuanAn
     {
-        public int MaGia { get; set; }
-        public int MaTour { get; set; }
-        public int Gia1 { get; set; }
-        public System.DateTime khoangTGBD { get; set; }
-        public System.DateTime khoangTGKT { get; set; }
+        public int MaDQA { get; set; }
+        public int MaDoan { get; set; }
+        public string TenQA { get; set; }
+        public int Gia { get; set; }
+        public string DiaChi { get; set; }
     
-        public virtual Tour Tour { get; set; }
+        public virtual Doan Doan { get; set; }
     }
 }

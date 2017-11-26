@@ -30,18 +30,17 @@ namespace DATABASE.MODELS
         public virtual DbSet<DangKi> DangKi { get; set; }
         public virtual DbSet<DiaDiem> DiaDiem { get; set; }
         public virtual DbSet<Doan> Doan { get; set; }
-        public virtual DbSet<Gia> Gia { get; set; }
+        public virtual DbSet<Doan_ChiPhiKhac> Doan_ChiPhiKhac { get; set; }
+        public virtual DbSet<Doan_KhachSan> Doan_KhachSan { get; set; }
+        public virtual DbSet<Doan_PhuongTien> Doan_PhuongTien { get; set; }
+        public virtual DbSet<Doan_QuanAn> Doan_QuanAn { get; set; }
         public virtual DbSet<KhachHang> KhachHang { get; set; }
         public virtual DbSet<LoaiHinhDL> LoaiHinhDL { get; set; }
         public virtual DbSet<NhanVien> NhanVien { get; set; }
         public virtual DbSet<PhanCong> PhanCong { get; set; }
         public virtual DbSet<TinhThanh> TinhThanh { get; set; }
         public virtual DbSet<Tour> Tour { get; set; }
-        public virtual DbSet<Tour_ChiPhiKhac> Tour_ChiPhiKhac { get; set; }
         public virtual DbSet<Tour_DiaDiem> Tour_DiaDiem { get; set; }
         public virtual DbSet<Tour_Gia> Tour_Gia { get; set; }
-        public virtual DbSet<Tour_KhachSan> Tour_KhachSan { get; set; }
-        public virtual DbSet<Tour_QuanAn> Tour_QuanAn { get; set; }
-        public virtual DbSet<Xe> Xe { get; set; }
     }
 }

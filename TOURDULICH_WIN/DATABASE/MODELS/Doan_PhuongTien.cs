@@ -12,15 +12,13 @@ namespace DATABASE.MODELS
     using System;
     using System.Collections.Generic;
     
-    public partial class Tour_KhachSan
+    public partial class Doan_PhuongTien
     {
-        public int MaTKS { get; set; }
-        public int MaTour { get; set; }
-        public string TenKhachSan { get; set; }
-        public string DiaChi { get; set; }
+        public int MaDPT { get; set; }
+        public int MaDoan { get; set; }
+        public string TenPT { get; set; }
         public int Gia { get; set; }
-        public string GhiChu { get; set; }
     
-        public virtual Tour Tour { get; set; }
+        public virtual Doan Doan { get; set; }
     }
 }
