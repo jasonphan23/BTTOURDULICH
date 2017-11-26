@@ -24,7 +24,8 @@ namespace DATABASE.MODELS
     
         public int MaTour { get; set; }
         public string Ten { get; set; }
-        public int SLNgay { get; set; }
+        public int DiemBatDau { get; set; }
+        public int DiemKetThuc { get; set; }
         public string DacDiem { get; set; }
         public int LoaiHinhDL { get; set; }
         public bool TrangThai { get; set; }
@@ -33,6 +34,8 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Doan_KhachSan> Doan_KhachSan { get; set; }
         public virtual LoaiHinhDL LoaiHinhDL1 { get; set; }
+        public virtual TinhThanh TinhThanh { get; set; }
+        public virtual TinhThanh TinhThanh1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tour_DiaDiem> Tour_DiaDiem { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

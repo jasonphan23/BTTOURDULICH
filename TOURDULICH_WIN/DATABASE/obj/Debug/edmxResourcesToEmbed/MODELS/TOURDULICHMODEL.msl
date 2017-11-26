@@ -46,8 +46,6 @@
           <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
           <ScalarProperty Name="MaTourGia" ColumnName="MaTourGia" />
-          <ScalarProperty Name="SLKhach" ColumnName="SLKhach" />
-          <ScalarProperty Name="SLNV" ColumnName="SLNV" />
           <ScalarProperty Name="NgayKH" ColumnName="NgayKH" />
           <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
           <ScalarProperty Name="MoTaChiTiet" ColumnName="MoTaChiTiet" />
@@ -158,7 +156,8 @@
         <MappingFragment StoreEntitySet="Tour">
           <ScalarProperty Name="MaTour" ColumnName="MaTour" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="SLNgay" ColumnName="SLNgay" />
+          <ScalarProperty Name="DiemBatDau" ColumnName="DiemBatDau" />
+          <ScalarProperty Name="DiemKetThuc" ColumnName="DiemKetThuc" />
           <ScalarProperty Name="DacDiem" ColumnName="DacDiem" />
           <ScalarProperty Name="LoaiHinhDL" ColumnName="LoaiHinhDL" />
           <ScalarProperty Name="TrangThai" ColumnName="TrangThai" />
@@ -172,8 +171,6 @@
           <ScalarProperty Name="MaTDD" ColumnName="MaTDD" />
           <ScalarProperty Name="MaTour" ColumnName="MaTour" />
           <ScalarProperty Name="MaDD" ColumnName="MaDD" />
-          <ScalarProperty Name="TenDiaDiem" ColumnName="TenDiaDiem" />
-          <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
           <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
         </MappingFragment>
       </EntityTypeMapping>

@@ -18,6 +18,8 @@ namespace DATABASE.MODELS
         public TinhThanh()
         {
             this.DiaDiem = new HashSet<DiaDiem>();
+            this.Tour = new HashSet<Tour>();
+            this.Tour1 = new HashSet<Tour>();
         }
     
         public int MaTT { get; set; }
@@ -25,5 +27,9 @@ namespace DATABASE.MODELS
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DiaDiem> DiaDiem { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tour> Tour { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Tour> Tour1 { get; set; }
     }
 }

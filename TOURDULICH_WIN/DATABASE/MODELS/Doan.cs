@@ -28,8 +28,6 @@ namespace DATABASE.MODELS
         public int MaDoan { get; set; }
         public string Ten { get; set; }
         public int MaTourGia { get; set; }
-        public int SLKhach { get; set; }
-        public int SLNV { get; set; }
         public System.DateTime NgayKH { get; set; }
         public System.DateTime NgayKT { get; set; }
         public string MoTaChiTiet { get; set; }

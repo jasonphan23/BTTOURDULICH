@@ -54,7 +54,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAL\DIADIEM_BAL.cs" />
+    <Compile Include="BAL\LOAIHINH_BAL.cs" />
+    <Compile Include="BAL\THANHPHO_BAL.cs" />
     <Compile Include="BAL\TOURGIA_BAL.cs" />
+    <Compile Include="BAL\TOUR_BAL.cs" />
     <Compile Include="GUI\Form2.cs">
       <SubType>Form</SubType>
     </Compile>

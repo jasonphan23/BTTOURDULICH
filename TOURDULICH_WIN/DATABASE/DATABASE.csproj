@@ -51,99 +51,98 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MODELS\ChucVu.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\CTDoan.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DangKi.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DiaDiem.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_ChiPhiKhac.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_KhachSan.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_PhuongTien.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_QuanAn.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\KhachHang.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\LoaiHinhDL.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\NhanVien.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\PhanCong.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\TinhThanh.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURDULICHMODEL.Context.cs">
+    <Compile Include="MODELS\TourDuLichModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURDULICHMODEL.Context.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURDULICHMODEL.cs">
+    <Compile Include="MODELS\TourDuLichModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="MODELS\TOURDULICHMODEL.Designer.cs">
+    <Compile Include="MODELS\TourDuLichModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_DiaDiem.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_Gia.cs">
-      <DependentUpon>TOURDULICHMODEL.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="REPOSITORY\Database.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="MODELS\TOURDULICHMODEL.edmx">
+    <EntityDeploy Include="MODELS\TourDuLichModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TOURDULICHMODEL.Designer.cs</LastGenOutput>
+      <LastGenOutput>TourDuLichModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MODELS\TOURDULICHMODEL.edmx.diagram">
-      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
+    <None Include="MODELS\TourDuLichModel.edmx.diagram">
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="MODELS\TOURDULICHMODEL.Context.tt">
+    <Content Include="MODELS\TourDuLichModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
-      <LastGenOutput>TOURDULICHMODEL.Context.cs</LastGenOutput>
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
+      <LastGenOutput>TourDuLichModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MODELS\TOURDULICHMODEL.tt">
+    <Content Include="MODELS\TourDuLichModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TOURDULICHMODEL.edmx</DependentUpon>
-      <LastGenOutput>TOURDULICHMODEL.cs</LastGenOutput>
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
+      <LastGenOutput>TourDuLichModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
