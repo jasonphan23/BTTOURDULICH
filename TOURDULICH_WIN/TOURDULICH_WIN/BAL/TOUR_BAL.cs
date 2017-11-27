@@ -21,7 +21,7 @@ namespace TOURDULICH_WIN.BAL
         public IEnumerable GetList()
         {
 
-            var list = db.GetList().Where(x=>x.TrangThai==true).Select(x => new {x.Ten,LoaiHinhDuLich = x.LoaiHinhDL1.Ten,x.DacDiem,x.DiemBatDau,x.DiemKetThuc}).ToList();
+            var list = db.GetList().Where(x=>x.TrangThai==true).Select(x => new {x.MaTour,x.Ten,LoaiHinhDuLich = x.LoaiHinhDL1.Ten,x.DacDiem,NoiBatDau = x.TinhThanh.Ten,NoiKetThuc = x.TinhThanh1.Ten}).ToList();
             return list;
         }
     }

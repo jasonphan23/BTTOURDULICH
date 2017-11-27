@@ -18,6 +18,7 @@ namespace TOURDULICH_WIN.GUI
         DIADIEM_BAL dd_bal;
         THANHPHO_BAL tp_bal;
         LOAIHINH_BAL lh_bal;
+        TOUR_BAL tour_bal;
         public Form2()
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace TOURDULICH_WIN.GUI
             IEnumerable lst_dd = dd_bal.GetList();
             datagv_diadiem.DataSource = lst_dd;
             datagv_diadiem_new.DataSource = lst_dd;
+            datagv_diadiem.Columns["MaDD"].Visible = false;
+
 
             tp_bal = new THANHPHO_BAL();
             IEnumerable lst_tt = tp_bal.GetList();
@@ -55,6 +58,10 @@ namespace TOURDULICH_WIN.GUI
             cbb_loaihinh_new.ValueMember = "MaLHDL";
             cbb_loaihinh_new.DisplayMember = "Ten";
 
+            tour_bal = new TOUR_BAL();
+            IEnumerable lst_tour = tour_bal.GetList();
+            datagv_tour.DataSource = lst_tour;
+            datagv_tour.Columns["MaTour"].Visible = false;
         }
 
 

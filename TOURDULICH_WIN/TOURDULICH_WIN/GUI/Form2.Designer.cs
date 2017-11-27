@@ -58,6 +58,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbb_noikt = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.cbb_noibd = new System.Windows.Forms.ComboBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -66,7 +70,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.datagv_tour = new System.Windows.Forms.DataGridView();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
@@ -91,6 +95,10 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cbb_noikt_new = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.cbb_noibd_new = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.richTextBox3 = new System.Windows.Forms.RichTextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -133,14 +141,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.data_giatour = new System.Windows.Forms.DateTimePicker();
             this.dtgv_banggia = new System.Windows.Forms.DataGridView();
-            this.label42 = new System.Windows.Forms.Label();
-            this.cbb_noibd = new System.Windows.Forms.ComboBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.cbb_noikt = new System.Windows.Forms.ComboBox();
-            this.cbb_noikt_new = new System.Windows.Forms.ComboBox();
-            this.label44 = new System.Windows.Forms.Label();
-            this.cbb_noibd_new = new System.Windows.Forms.ComboBox();
-            this.label45 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -151,7 +151,7 @@
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagv_tour)).BeginInit();
             this.tabPage4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.datagv_diadiem_new)).BeginInit();
@@ -209,7 +209,7 @@
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.groupBox1);
-            this.tabPage3.Controls.Add(this.dataGridView1);
+            this.tabPage3.Controls.Add(this.datagv_tour);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -227,16 +227,16 @@
             this.groupBox3.Controls.Add(this.datagv_diadiem);
             this.groupBox3.Controls.Add(this.dataGridView5);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Location = new System.Drawing.Point(818, 9);
+            this.groupBox3.Location = new System.Drawing.Point(920, 9);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(473, 556);
+            this.groupBox3.Size = new System.Drawing.Size(382, 556);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Danh sách địa điểm";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(305, 255);
+            this.button3.Location = new System.Drawing.Point(226, 255);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(139, 30);
             this.button3.TabIndex = 21;
@@ -265,17 +265,17 @@
             // datagv_diadiem
             // 
             this.datagv_diadiem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagv_diadiem.Location = new System.Drawing.Point(24, 58);
+            this.datagv_diadiem.Location = new System.Drawing.Point(13, 58);
             this.datagv_diadiem.Name = "datagv_diadiem";
-            this.datagv_diadiem.Size = new System.Drawing.Size(420, 191);
+            this.datagv_diadiem.Size = new System.Drawing.Size(352, 191);
             this.datagv_diadiem.TabIndex = 22;
             // 
             // dataGridView5
             // 
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView5.Location = new System.Drawing.Point(24, 317);
+            this.dataGridView5.Location = new System.Drawing.Point(24, 323);
             this.dataGridView5.Name = "dataGridView5";
-            this.dataGridView5.Size = new System.Drawing.Size(420, 210);
+            this.dataGridView5.Size = new System.Drawing.Size(341, 212);
             this.dataGridView5.TabIndex = 21;
             // 
             // label14
@@ -298,9 +298,9 @@
             this.groupBox5.Controls.Add(this.label6);
             this.groupBox5.Controls.Add(this.label15);
             this.groupBox5.Controls.Add(this.label16);
-            this.groupBox5.Location = new System.Drawing.Point(405, 285);
+            this.groupBox5.Location = new System.Drawing.Point(500, 285);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(390, 322);
+            this.groupBox5.Size = new System.Drawing.Size(414, 322);
             this.groupBox5.TabIndex = 19;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Quản lý giá tour";
@@ -431,12 +431,46 @@
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(398, 9);
+            this.groupBox1.Location = new System.Drawing.Point(500, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(414, 270);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin cơ bản";
+            // 
+            // cbb_noikt
+            // 
+            this.cbb_noikt.FormattingEnabled = true;
+            this.cbb_noikt.Location = new System.Drawing.Point(268, 73);
+            this.cbb_noikt.Name = "cbb_noikt";
+            this.cbb_noikt.Size = new System.Drawing.Size(138, 21);
+            this.cbb_noikt.TabIndex = 23;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(199, 77);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(40, 13);
+            this.label43.TabIndex = 22;
+            this.label43.Text = "Nơi KT";
+            // 
+            // cbb_noibd
+            // 
+            this.cbb_noibd.FormattingEnabled = true;
+            this.cbb_noibd.Location = new System.Drawing.Point(61, 74);
+            this.cbb_noibd.Name = "cbb_noibd";
+            this.cbb_noibd.Size = new System.Drawing.Size(120, 21);
+            this.cbb_noibd.TabIndex = 21;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(8, 76);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(41, 13);
+            this.label42.TabIndex = 20;
+            this.label42.Text = "Nơi BĐ";
             // 
             // richTextBox2
             // 
@@ -505,13 +539,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên Tour";
             // 
-            // dataGridView1
+            // datagv_tour
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(21, 37);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(361, 570);
-            this.dataGridView1.TabIndex = 0;
+            this.datagv_tour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.datagv_tour.Location = new System.Drawing.Point(3, 3);
+            this.datagv_tour.Name = "datagv_tour";
+            this.datagv_tour.Size = new System.Drawing.Size(491, 604);
+            this.datagv_tour.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -744,6 +778,40 @@
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông tin cơ bản";
+            // 
+            // cbb_noikt_new
+            // 
+            this.cbb_noikt_new.FormattingEnabled = true;
+            this.cbb_noikt_new.Location = new System.Drawing.Point(261, 71);
+            this.cbb_noikt_new.Name = "cbb_noikt_new";
+            this.cbb_noikt_new.Size = new System.Drawing.Size(114, 21);
+            this.cbb_noikt_new.TabIndex = 27;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(211, 75);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(40, 13);
+            this.label44.TabIndex = 26;
+            this.label44.Text = "Nơi KT";
+            // 
+            // cbb_noibd_new
+            // 
+            this.cbb_noibd_new.FormattingEnabled = true;
+            this.cbb_noibd_new.Location = new System.Drawing.Point(72, 71);
+            this.cbb_noibd_new.Name = "cbb_noibd_new";
+            this.cbb_noibd_new.Size = new System.Drawing.Size(120, 21);
+            this.cbb_noibd_new.TabIndex = 25;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(13, 73);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(41, 13);
+            this.label45.TabIndex = 24;
+            this.label45.Text = "Nơi BĐ";
             // 
             // richTextBox3
             // 
@@ -1143,74 +1211,6 @@
             this.dtgv_banggia.Size = new System.Drawing.Size(751, 475);
             this.dtgv_banggia.TabIndex = 16;
             // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(8, 76);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(41, 13);
-            this.label42.TabIndex = 20;
-            this.label42.Text = "Nơi BĐ";
-            // 
-            // cbb_noibd
-            // 
-            this.cbb_noibd.FormattingEnabled = true;
-            this.cbb_noibd.Location = new System.Drawing.Point(61, 74);
-            this.cbb_noibd.Name = "cbb_noibd";
-            this.cbb_noibd.Size = new System.Drawing.Size(120, 21);
-            this.cbb_noibd.TabIndex = 21;
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(199, 77);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(40, 13);
-            this.label43.TabIndex = 22;
-            this.label43.Text = "Nơi KT";
-            // 
-            // cbb_noikt
-            // 
-            this.cbb_noikt.FormattingEnabled = true;
-            this.cbb_noikt.Location = new System.Drawing.Point(268, 73);
-            this.cbb_noikt.Name = "cbb_noikt";
-            this.cbb_noikt.Size = new System.Drawing.Size(138, 21);
-            this.cbb_noikt.TabIndex = 23;
-            // 
-            // cbb_noikt_new
-            // 
-            this.cbb_noikt_new.FormattingEnabled = true;
-            this.cbb_noikt_new.Location = new System.Drawing.Point(261, 71);
-            this.cbb_noikt_new.Name = "cbb_noikt_new";
-            this.cbb_noikt_new.Size = new System.Drawing.Size(114, 21);
-            this.cbb_noikt_new.TabIndex = 27;
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(211, 75);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(40, 13);
-            this.label44.TabIndex = 26;
-            this.label44.Text = "Nơi KT";
-            // 
-            // cbb_noibd_new
-            // 
-            this.cbb_noibd_new.FormattingEnabled = true;
-            this.cbb_noibd_new.Location = new System.Drawing.Point(72, 71);
-            this.cbb_noibd_new.Name = "cbb_noibd_new";
-            this.cbb_noibd_new.Size = new System.Drawing.Size(120, 21);
-            this.cbb_noibd_new.TabIndex = 25;
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(13, 73);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(41, 13);
-            this.label45.TabIndex = 24;
-            this.label45.Text = "Nơi BĐ";
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1232,7 +1232,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.datagv_tour)).EndInit();
             this.tabPage4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
@@ -1304,7 +1304,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView datagv_tour;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label4;
