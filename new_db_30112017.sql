@@ -1,0 +1,7 @@
+use TourDuLich
+ALTER TABLE Doan DROP  CONSTRAINT FK__Doan__MaTourGia__24927208;
+ALTER TABLE Doan DROP COLUMN MaTourGia 
+ALTER TABLE Doan ADD MaTour int not null
+ALTER TABLE Doan ADD CONSTRAINT FK_Doan_MaTour FOREIGN KEY (MaTour) REFERENCES Tour(MaTour)
+
+ALTER TABLE DangKi ADD GiaDangKy int not null

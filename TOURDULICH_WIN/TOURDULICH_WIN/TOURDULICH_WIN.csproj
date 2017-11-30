@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BAL\Copy of DIADIEM_BAL.cs" />
+    <Compile Include="BAL\TOURDIADIEM_BAL.cs" />
     <Compile Include="BAL\DIADIEM_BAL.cs" />
     <Compile Include="BAL\LOAIHINH_BAL.cs" />
     <Compile Include="BAL\THANHPHO_BAL.cs" />

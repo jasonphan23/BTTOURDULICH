@@ -24,5 +24,10 @@ namespace TOURDULICH_WIN.BAL
             var list = db.GetList().Where(x=>x.TrangThai==true).Select(x => new {x.MaTour,x.Ten,LoaiHinhDuLich = x.LoaiHinhDL1.Ten,x.DacDiem,NoiBatDau = x.TinhThanh.Ten,NoiKetThuc = x.TinhThanh1.Ten}).ToList();
             return list;
         }
+        public bool Insert(Tour t)
+        {
+
+            return db.Insert(t);
+        }
     }
 }

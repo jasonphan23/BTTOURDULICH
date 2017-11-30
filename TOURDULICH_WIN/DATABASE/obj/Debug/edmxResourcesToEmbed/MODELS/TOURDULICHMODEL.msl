@@ -28,6 +28,7 @@
           <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
           <ScalarProperty Name="MaKH" ColumnName="MaKH" />
           <ScalarProperty Name="NgayDK" ColumnName="NgayDK" />
+          <ScalarProperty Name="GiaDangKy" ColumnName="GiaDangKy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -45,11 +46,11 @@
         <MappingFragment StoreEntitySet="Doan">
           <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
           <ScalarProperty Name="Ten" ColumnName="Ten" />
-          <ScalarProperty Name="MaTourGia" ColumnName="MaTourGia" />
           <ScalarProperty Name="NgayKH" ColumnName="NgayKH" />
           <ScalarProperty Name="NgayKT" ColumnName="NgayKT" />
           <ScalarProperty Name="MoTaChiTiet" ColumnName="MoTaChiTiet" />
           <ScalarProperty Name="TruongDoan" ColumnName="TruongDoan" />
+          <ScalarProperty Name="MaTour" ColumnName="MaTour" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

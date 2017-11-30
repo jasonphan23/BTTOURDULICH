@@ -22,5 +22,12 @@ namespace TOURDULICH_WIN.BAL
             var list = db.GetList().Select(x => new {x.MaLHDL,x.Ten}).ToList();
             return list;
         }
+        public LoaiHinhDL First(int ma)
+        {
+
+            LoaiHinhDL lh = db.GetSingle(x => x.MaLHDL == ma);
+            return lh;
+        }
+     
     }
     }

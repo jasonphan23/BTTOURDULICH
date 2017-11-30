@@ -21,5 +21,11 @@ namespace TOURDULICH_WIN.BAL
             var list = db.GetList().Select(x => new {x.MaDD,TenDiaDiem = x.Ten,TenTinhThanh = x.TinhThanh1.Ten}).ToList();
             return list;
         }
+        public DiaDiem First(int ma)
+        {
+
+            DiaDiem dd = db.GetSingle(x => x.MaDD == ma);
+            return dd;
+        }
     }
 }

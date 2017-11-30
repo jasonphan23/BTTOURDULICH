@@ -27,17 +27,16 @@ namespace DATABASE.MODELS
     
         public int MaDoan { get; set; }
         public string Ten { get; set; }
-        public int MaTourGia { get; set; }
         public System.DateTime NgayKH { get; set; }
         public System.DateTime NgayKT { get; set; }
         public string MoTaChiTiet { get; set; }
         public int TruongDoan { get; set; }
+        public int MaTour { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTDoan> CTDoan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DangKi> DangKi { get; set; }
-        public virtual Tour_Gia Tour_Gia { get; set; }
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Doan_ChiPhiKhac> Doan_ChiPhiKhac { get; set; }
@@ -47,5 +46,6 @@ namespace DATABASE.MODELS
         public virtual ICollection<Doan_QuanAn> Doan_QuanAn { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PhanCong> PhanCong { get; set; }
+        public virtual Tour Tour { get; set; }
     }
 }

@@ -14,12 +14,6 @@ namespace DATABASE.MODELS
     
     public partial class Tour_Gia
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tour_Gia()
-        {
-            this.Doan = new HashSet<Doan>();
-        }
-    
         public int MaTourGia { get; set; }
         public int MaTour { get; set; }
         public System.DateTime TGBD { get; set; }
@@ -27,8 +21,6 @@ namespace DATABASE.MODELS
         public int Gia { get; set; }
         public bool TrangThai { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Doan> Doan { get; set; }
         public virtual Tour Tour { get; set; }
     }
 }

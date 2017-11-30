@@ -22,6 +22,13 @@ namespace TOURDULICH_WIN.BAL
             var kon = tourgia_db.Search(x => x.TGBD <= dt && x.TGKT>=dt).OrderByDescending(x=>x.TGBD).Select(x => new {x.Tour.Ten , x.Gia}).ToList();
             return kon;
         }
+        public List<Tour_Gia> GetList(int ma)
+        {
+            List<Tour_Gia> tour_gia = tourgia_db.Search(x => x.MaTour == ma).ToList();
+            return tour_gia;
+        }
+
+
 
     }
 }
