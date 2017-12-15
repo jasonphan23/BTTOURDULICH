@@ -1,0 +1,52 @@
+﻿@{
+    ViewBag.Title = "";
+    var dstour = (List<DATABASE.MODELS.PhanCong>)ViewBag.DsTour;
+            
+}
+  <table class="table table-striped table-bordered table-hover" id="dataTables-listtourNV">
+            <thead>
+                <tr>
+                   
+                    <th>Tên đoàn</th>
+                    <th>Ngày khởi hành</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Chức vụ</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @if (dstour == null)
+                { 
+                    <tr>
+                        <td colspan="4" style="text-align: center;">Không có đi tour nào trong thời gian này
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var item in dstour)
+                    {
+                                    
+                    <tr>
+                        <td>
+                            @item.Doan.Ten
+                        </td>
+                        <td>
+                            @item.Doan.NgayKH
+                        </td>
+                        <td >
+                            @item.Doan.NgayKT
+                        </td>
+                        <td>
+                            @item.ChucVu.Ten
+                        </td>
+                      
+                    </tr>
+                  
+                    }
+                }
+            </tbody>
+        </table>
+ <h4>Tổng số lần đi: <span class="text-danger">@ViewBag.SoLan</span></h4>
+
+

@@ -1,0 +1,111 @@
+﻿@{
+    ViewBag.Title = "Thống kê chi phí";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>Thống kê chi phí</h2>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            Chọn thông tin đoàn
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="col-lg-4" style="height: 130px;">
+                <label for="start" class="col-lg-4">Từ ngày:</label>
+                <div class="form-group">
+                    <div class='input-group col-lg-8  date' id='tungay'>
+                        <input type='text' id="start" class="form-control " placeholder="dd/mm/yyyy" name="ngay" />
+                        <span class="input-group-addon" id="btn_tungay">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+             <div class="col-lg-4" style="height: 130px;">
+                <label for="start" class="col-lg-4">Đến ngày:</label>
+                <div class="form-group">
+                    <div class='input-group col-lg-8  date' id='denngay'>
+                        <input type='text' id="end" class="form-control " placeholder="dd/mm/yyyy" name="ngay" />
+                        <span class="input-group-addon" id="btn_denngay">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4" style="height: 130px;">
+                <label for="start" class="col-lg-2">Tour: </label>
+                 <div class="form-group col-lg-10">
+                @Html.DropDownList("dsTour", ViewBag.LayDSTour as SelectList, null, new { @class = "form-control",@id="tentour", @name = "tentour" })
+                </div>
+            </div>
+            <div class="col-lg-4" style="height: 130px;">
+                <button id="laydulieu" class="btn btn-success">Lấy dữ liệu</button>
+            </div>
+            <div class="content_doanhthu">
+
+            </div>
+
+
+        </div>
+    </div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#dataTables-listtourNV").DataTable({
+                responsive: true,
+                "language": {
+                    "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json"
+                }
+            });
+      
+            $('#tungay').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD-MM-YYYY'
+            });
+            $('#denngay').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD-MM-YYYY'
+            });
+            function FormatCurrency(num) {
+
+                //So khớp số 1 số trong chuỗi khi 1 số sau nó(?=) lấy đc 3 số
+                var n = num.toFixed(1).replace(/(\d)(?=(\d{3})+\.)/g, '$1,');
+                var cur = n.split(".");
+                return cur[0];
+            }
+
+            $("#laydulieu").on("click", function () {
+              
+                if ($('#start').val() != '' && $('#end').val() != '') {
+
+                 
+                        $("#laydulieu").text("Đang lấy dữ liệu...");
+                        $(".content_doanhthu").load("/Thongke/LoadChiPhi/" + $('#start').val() + "/" + $('#end').val() + "/" + $('#tentour').val(), function () {
+
+                            $('.money').each(function () {
+                                $(this).text(FormatCurrency(parseInt($(this).text())));
+                            });
+                            $("#laydulieu").text("Lấy dữ liệu");
+                        });
+                  
+
+                }
+                else {alert("Nhập đầy đủ ngày") }
+            });
+        });
+    </script>
+}
+

@@ -17,7 +17,7 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Tour()
         {
-            this.Doan = new HashSet<Doan>();
+            this.Doans = new HashSet<Doan>();
             this.Doan_KhachSan = new HashSet<Doan_KhachSan>();
             this.Tour_DiaDiem = new HashSet<Tour_DiaDiem>();
             this.Tour_Gia = new HashSet<Tour_Gia>();
@@ -33,7 +33,7 @@ namespace DATABASE.MODELS
         public string GhiChu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Doan> Doan { get; set; }
+        public virtual ICollection<Doan> Doans { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Doan_KhachSan> Doan_KhachSan { get; set; }
         public virtual LoaiHinhDL LoaiHinhDL1 { get; set; }

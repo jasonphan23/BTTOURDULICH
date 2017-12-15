@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "";
+    var dsdoan = (List<DATABASE.MODELS.CTDoan>)ViewBag.listDoan;
+    int tongchiphi = 0;
+    int tongKS = 0;
+    int tongBA = 0;
+    int tongPT = 0;
+    int tongCPK = 0;
+    int tong = 0;
+}
+  <table class="table table-striped table-bordered table-hover" id="dataTables-listtourNV">
+            <thead>
+                <tr>
+                   
+                    <th>Tên đoàn</th>
+                    <th>Ngày khởi hành</th>
+                    <th>Ngày kết thúc</th>
+                    <th>Chi phí khách sạn</th>
+                    <th>Chi phí ăn</th>
+                    <th>Chi phí phương tiện</th>
+                    <th>Chi phí khác</th>
+                    <th>Tên chi phí khác</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (dsdoan == null)
+                { 
+                    <tr>
+                        <td colspan="8" style="text-align: center;">Không có đoàn khách nào
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var item in dsdoan)
+                    {
+                       <span class="hidden">@(tong = 0)</span> 
+                    <tr>
+                        <td>
+                            @item.Doan.Ten
+                        </td>
+                        <td>
+                            @item.Doan.NgayKH
+                        </td>
+                        <td>
+                            @item.Doan.NgayKT
+                        </td>
+                        <td  class="money">
+                            @item.TongCPKS
+                        </td>
+                        <td  class="money">
+                            @item.TongCPBA
+                        </td>
+                          <td  class="money">
+                            @item.TongCPPT
+                        </td>
+                          <td  class="money">
+                            @item.TongCPKhac
+                        </td>
+                          <td>
+                            @item.Doan.Doan_ChiPhiKhac.Where(x=>x.MaDoan == item.Doan.MaDoan).FirstOrDefault().TenCPKhac
+                        </td>
+                    </tr>
+                    <span class="hidden">@(tongBA += item.TongCPBA)</span>
+                    <span class="hidden">@(tongKS += item.TongCPKS)</span>
+                    <span class="hidden">@(tongPT += item.TongCPPT)</span>
+                    <span class="hidden">@(tongCPK += )+@(item.TongCPKhac.HasValue==true?item.TongCPKhac:0)</span>
+                    <span class="hidden">@(tong =  item.TongCPKS + item.TongCPBA + item.TongCPPT) + @(item.TongCPKhac.HasValue==true?item.TongCPKhac:0))</span>
+                   <span class="hidden">@(tongchiphi += tong)</span>
+                    }
+                }
+            </tbody>
+        </table>
+<h3>Tổng chi phí khách sạn: <span class="text-primary money">@tongKS</span></h3>
+<h3>Tổng chi phí ăn: <span class="text-primary money">@tongBA</span></h3>
+<h3>Tổng chi phí phương tiện: <span class="text-primary money">@tongPT</span></h3>
+<h3>Tổng chi phí khác: <span class="text-danger primary">@tongCPK</span></h3>
+ <h4>Tổng chi phí: <span class="text-danger money">@tongchiphi</span></h4>
+
+

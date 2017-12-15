@@ -17,13 +17,13 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChucVu()
         {
-            this.PhanCong = new HashSet<PhanCong>();
+            this.PhanCongs = new HashSet<PhanCong>();
         }
     
         public int MaCV { get; set; }
         public string Ten { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCong { get; set; }
+        public virtual ICollection<PhanCong> PhanCongs { get; set; }
     }
 }

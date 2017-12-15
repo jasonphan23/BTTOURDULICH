@@ -1,0 +1,119 @@
+﻿@model DATABASE.MODELS.DangKi
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Đăng kí tour
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+            <fieldset>
+                 <input id="makh" class="form-control hidden"disabled>
+                <div class="form-group col-md-6">
+                    <label for="tenkh">Tên khách hàng:</label>
+                    <input id="tenkh" class="form-control"disabled>
+                </div>
+
+                <div class="form-group col-md-6">
+                   <label for="cmnd">Chứng minh thư:</label>
+                   <input type="text" class="form-control" name="CMND" id="CMND" value=" " />
+                </div>
+                <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Ngày đăng kí:</label>
+                    
+                        <div class='input-group date' id='datetimepicker8'>
+                            <input type='text' id="ngaynhap" class="form-control" placeholder="dd/mm/yyyy" name="ngaynhap" />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+           
+                </div>
+                
+                <div class="form-group col-md-6">
+                   
+                <label for="tentour">Chọn tour:</label>
+                @Html.DropDownList("ddl2", ViewBag.LayDSTour as SelectList, null, new { @class = "form-control", @id = "tentour", @name = "tentour" })
+                </div>
+                <div id="listdoan">
+
+                </div>
+
+                <p>
+                    <input type="submit" class="btn btn-primary" value="Thêm" />
+                </p>
+            </fieldset>
+        
+            </div>
+        </div>
+     </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+          
+            $("#listdoan").load("/KhachHang/DsDoan/1", function () {
+                $("#dataTables-dsdoan").DataTable({
+                    responsive: true,
+                    "language": {
+                        "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json"
+                    }
+                });
+                $('.money').each(function () {
+                    $(this).text(FormatCurrency(parseInt($(this).text())));
+                });
+            });
+           
+            $('#datetimepicker8').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+            $("#CMND").on("change", function () {
+                $.ajax({
+                    url: '/KhachHang/tenkh/' + $(this).val() + '',
+                    type: "POST",
+                    data: { "id": $(this).val() },
+                    dataType: "json",
+                    success: function (data) {
+                        $("#tenkh").val(data.HoTen);
+                        $("#makh").val(data.MaKH);
+                    },
+                    error: function (xhr) {
+
+                    }
+                });
+            });
+            $("#tentour").on("change", function () {
+                $("#listdoan").load("/KhachHang/DsDoan/" + $(this).val(), function () {
+                    $("#dataTables-dsdoan").DataTable({
+                        responsive: true,
+                        "language": {
+                            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Vietnamese.json"
+                        }
+                    });
+                    $('.money').each(function () {
+
+                        $(this).text(FormatCurrency(parseInt($(this).text())));
+                    });
+                });
+
+            });
+            $(document).on("click", "#dataTables-dsdoan tr", function () {
+                var id = $(this).attr("id");
+                
+            });
+        });
+    </script>
+}

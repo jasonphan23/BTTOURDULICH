@@ -1,0 +1,54 @@
+﻿@{
+    ViewBag.Title = "LoadThu_Chi";
+    var dsdoan = (List<DATABASE.MODELS.Doan>)ViewBag.DsDoan;
+    int i = 0;
+}
+
+<table class="table table-bordered table-hover" id="dataTables-dsdoan">
+    <thead class="thead-default">
+        <tr>
+            <th>Mã đoàn</th>
+            <th>Tên đoàn</th>
+            <th>Ngày khởi hành</th>
+            <th>Ngày kết thúc</th>
+            <th>Giá</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @if (dsdoan == null)
+        { 
+            <tr>
+                <td colspan="5" style="text-align: center;">Không có đoàn phù hợp
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in dsdoan)
+            {
+                <span class="hidden">@(i++)</span>           
+            <tr id="@i">
+                <td>
+                    @item.MaDoan
+                </td>
+                <td>
+                    @item.Ten
+                </td>
+                <td>
+                    @item.NgayKH
+                </td>
+                <td>
+                    @item.NgayKT
+                </td>
+
+                <td class="money">
+                    @item.Tour.Tour_Gia.Where(x => x.TGKT >= DateTime.Now).FirstOrDefault().Gia;
+                </td>
+
+            </tr>
+            }
+        }
+    </tbody>
+</table>
