@@ -23,6 +23,9 @@ namespace TOURDULICH_WIN.GUI
         TOUR_BAL tour_bal;
         TOURGIA_BAL tourgia_bal;
         TOURDIAIDIEM_BAL tourdd_bal;
+        BindingSource tour_biding = new BindingSource();
+
+
         public Form2()
         {
             InitializeComponent();
@@ -78,7 +81,6 @@ namespace TOURDULICH_WIN.GUI
 
             tour_bal = new TOUR_BAL();
             IEnumerable lst_tour = tour_bal.GetList();
-            BindingSource tour_biding = new BindingSource();
             tour_biding.DataSource = lst_tour;
             datagv_tour.DataSource = tour_biding;
             datagv_tour.Columns["MaTour"].Visible = false;
@@ -87,15 +89,9 @@ namespace TOURDULICH_WIN.GUI
         {
 
             IEnumerable lst_tour = tour_bal.GetListTK();
-            BindingSource tour_biding = new BindingSource();
             tour_biding.DataSource = lst_tour;
             dtgv_tour_tk.DataSource = tour_biding;
             dtgv_tour_tk.Columns["MaTour"].Visible = false;
-        }
-
-        private void tabPage3_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -141,18 +137,18 @@ namespace TOURDULICH_WIN.GUI
             if (check_exists)
             {
                 Tour_DiaDiem tdd = new Tour_DiaDiem();
-                tdd.MaTour = Int32.Parse(datagv_tour[0,datagv_tour.CurrentRow.Index].Value.ToString());
+                tdd.MaTour = Int32.Parse(datagv_tour[0, datagv_tour.CurrentRow.Index].Value.ToString());
                 tdd.MaDD = Int32.Parse(dtgv_diadiem[0, index].Value.ToString());
 
                 if (tourdd_bal.Insert(tdd))
                 {
                     MessageBox.Show("Đã chèn");
-                    dtgv_dd_tour.Rows.Add(tdd.MaTDD,dtgv_diadiem[1, index].Value, dtgv_diadiem[2, index].Value);
+                    dtgv_dd_tour.Rows.Add(tdd.MaTDD, dtgv_diadiem[1, index].Value, dtgv_diadiem[2, index].Value);
                     dtgv_dd_tour.Rows[dtgv_dd_tour.Rows.Count - 1].Tag = dtgv_diadiem[0, index].Value;
                 }
 
             }
-            
+
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -180,11 +176,11 @@ namespace TOURDULICH_WIN.GUI
         {
             DateTime new_giaap_date = date_doigiaad.Value.Date;
             DateTime new_giakt_date = date_doigiakt.Value.Date;
-            DateTime old_bd = DateTime.Parse(dtgv_gia[1,dtgv_gia.Rows.Count-1].Value.ToString());
-            DateTime old_kt= DateTime.Parse(dtgv_gia[2,dtgv_gia.Rows.Count-1].Value.ToString());
+            DateTime old_bd = DateTime.Parse(dtgv_gia[1, dtgv_gia.Rows.Count - 1].Value.ToString());
+            DateTime old_kt = DateTime.Parse(dtgv_gia[2, dtgv_gia.Rows.Count - 1].Value.ToString());
 
 
-            if (new_giaap_date < DateTime.Now.Date || new_giaap_date >= old_bd.Date && new_giaap_date <= old_kt.Date || new_giakt_date < old_kt.Date || new_giaap_date<old_bd.Date) //gia nam trong khoang gia gan nhat da duoc luu o  db
+            if (new_giaap_date < DateTime.Now.Date || new_giaap_date >= old_bd.Date && new_giaap_date <= old_kt.Date || new_giakt_date < old_kt.Date || new_giaap_date < old_bd.Date) //gia nam trong khoang gia gan nhat da duoc luu o  db
             {
                 MessageBox.Show("Khoảng giá không hợp lệ hoặc đã tồn tại");
             }
@@ -198,7 +194,7 @@ namespace TOURDULICH_WIN.GUI
             }
             else
             {
-                button2.Enabled = false;
+
                 Tour_Gia tg = new Tour_Gia();
                 tg.MaTour = Int32.Parse(datagv_tour[0, datagv_tour.CurrentRow.Index].Value.ToString());
                 tg.Gia = Int32.Parse(txt_giatien.Text.ToString());
@@ -208,11 +204,13 @@ namespace TOURDULICH_WIN.GUI
                 {
                     dtgv_gia.Rows.Add(txt_giatien.Text, new_giaap_date, new_giakt_date);
                 }
+                MessageBox.Show("Bạn đã nhập thành công giá mới !");
+                button2.Enabled = false;
             }
         }
 
 
-       
+
         private void datagv_tour_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = datagv_tour.CurrentCell.RowIndex;
@@ -231,12 +229,13 @@ namespace TOURDULICH_WIN.GUI
 
             List<Tour_Gia> lst_tourgia = tourgia_bal.GetList(Int16.Parse(datagv_tour[0, index].Value.ToString()));
             dtgv_gia.Rows.Clear();
-            foreach (Tour_Gia tourgia in lst_tourgia )
+            foreach (Tour_Gia tourgia in lst_tourgia)
             {
                 dtgv_gia.Rows.Add(tourgia.Gia, tourgia.TGBD, tourgia.TGKT);
                 dtgv_gia.Rows[dtgv_gia.Rows.Count - 1].Tag = tourgia.MaTourGia;
-            }
 
+            }
+            dtgv_gia.Columns[0].DefaultCellStyle.Format = "C0";
             List<Tour_DiaDiem> lst_tourdd = tourdd_bal.GetList(Int16.Parse(datagv_tour[0, index].Value.ToString()));
             if (dtgv_dd_tour.Rows.Count > 0)
             {
@@ -246,16 +245,19 @@ namespace TOURDULICH_WIN.GUI
             {
                 dtgv_dd_tour.Rows.Add(tourdd.MaTDD, tourdd.DiaDiem.Ten, tourdd.DiaDiem.TinhThanh1.Ten);
                 dtgv_dd_tour.Rows[dtgv_dd_tour.Rows.Count - 1].Tag = tourdd.MaDD;
-               
+
             }
             dtgv_dd_tour.Columns[0].Visible = false;
-
+            if (button2.Enabled == false)
+            {
+                button2.Enabled = true;
+            }
         }
 
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
-        
+
         }
 
         private void dtgv_gia_new_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -275,13 +277,26 @@ namespace TOURDULICH_WIN.GUI
 
         private void button5_Click(object sender, EventArgs e)
         {
+
+            int giatien = 0;
+            bool ktgiatour = Int32.TryParse(txt_giatien_new.Text, out giatien);
             if (txt_giatien_new.Text == "")
             {
                 MessageBox.Show("Giá tour không được rỗng");
             }
+            else if (!ktgiatour)
+            {
+                MessageBox.Show("Giá tour không được là chữ");
+            }
+
+
             else if (txt_tentour_new.Text == "")
             {
                 MessageBox.Show("Tên tour không được rỗng");
+            }
+            else if (cbb_noibd_new.SelectedValue.ToString() == cbb_noibd_new.SelectedValue.ToString())
+            {
+                MessageBox.Show("Nơi khởi hành và nơi kết thúc tour không thể trùng nhau !");
             }
             else
             {
@@ -370,6 +385,7 @@ namespace TOURDULICH_WIN.GUI
             if (tourdd_bal.Delete(matour_dd))
             {
                 dtgv_dd_tour.Rows.RemoveAt(index);
+                MessageBox.Show("Đã xóa!");
             }
         }
 
@@ -466,7 +482,7 @@ namespace TOURDULICH_WIN.GUI
 
         private void datagv_tour_MouseClick(object sender, MouseEventArgs e)
         {
-               if (e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 ContextMenuStrip context_menu = new ContextMenuStrip();
                 context_menu.Items.Add("Xóa");
@@ -478,14 +494,14 @@ namespace TOURDULICH_WIN.GUI
         {
             int index = datagv_tour.CurrentRow.Index;
 
-            int matour = Int32.Parse(datagv_tour[0,index].Value.ToString());
+            int matour = Int32.Parse(datagv_tour[0, index].Value.ToString());
 
-            if(tour_bal.Delete(matour))
+            if (tour_bal.Delete(matour))
             {
-               MessageBox.Show("Xóa thành công");
-               datagv_tour.Rows.RemoveAt(index);
+                MessageBox.Show("Xóa thành công");
+                datagv_tour.Rows.RemoveAt(index);
             }
-            
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -501,9 +517,67 @@ namespace TOURDULICH_WIN.GUI
             dtgv_thhd.DataSource = tour_biding;
             dtgv_thhd.Columns["MaTour"].Visible = false;
         }
-            
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (datetkhd_bd.Value.Date > datetkhd_kt.Value.Date)
+            {
+                MessageBox.Show("không hợp lệ");
+            }
+            else
+            {
+                DOAN_BAL d_bal = new DOAN_BAL();
+                DANGKY_BAL dk_bal = new DANGKY_BAL();
+                if (dtgv_thhd.CurrentRow.Index != null)
+                {
+                    int count = d_bal.count_doan(datetkhd_bd.Value.Date, datetkhd_kt.Value.Date, Int32.Parse(dtgv_thhd[0, dtgv_thhd.CurrentRow.Index].Value.ToString()));
+                    //dtgv_ctdt.DataSource = lst_dk;
+
+                    label32.Text = count.ToString();
+
+                    int sum = dk_bal.get_sum_tk(datetkhd_bd.Value.Date, datetkhd_kt.Value.Date, Int32.Parse(dtgv_thhd[0, dtgv_thhd.CurrentRow.Index].Value.ToString()));
+                    //dtgv_ctdt.DataSource = lst_dk;
+                    label33.Text = sum.ToString();
+                    label27.Text = dtgv_thhd[1, dtgv_thhd.CurrentRow.Index].Value.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("bạn chưa chọn tour!");
+                }
+
+            }
         }
 
+        private void datagv_tour_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox9_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void v(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged_1(object sender, EventArgs e)
+        {
+            IEnumerable lst_tour = tour_bal.Search(textBox2.Text);
+            BindingSource tour_biding = new BindingSource();
+            tour_biding.DataSource = lst_tour;
+            datagv_tour.DataSource = tour_biding;
+            datagv_tour.Columns["MaTour"].Visible = false;
+        }
+
+    }
 
 
     }

@@ -30,6 +30,12 @@ namespace TOURDULICH_WIN.BAL
             var list = db.GetList().Select(x => new { x.MaTour, x.Ten, NoiBatDau = x.TinhThanh.Ten, NoiKetThuc = x.TinhThanh1.Ten }).ToList();
             return list;
         }
+        public IEnumerable Search(string item)
+        {
+
+            var list = db.Search(x => x.Ten.Contains(item)).Select(x => new { x.MaTour, x.Ten, LoaiHinhDuLich = x.LoaiHinhDL1.Ten, x.DacDiem, NoiBatDau = x.TinhThanh.Ten, NoiKetThuc = x.TinhThanh1.Ten }).ToList();
+            return list;
+        }
         
         public bool Insert(Tour t)
         {

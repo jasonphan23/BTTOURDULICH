@@ -21,5 +21,12 @@ namespace TOURDULICH_WIN.BAL
      .Select(x => new { Ngay = (DateTime)x.Key, TongDoanhThu = x.Sum(X=>X.GiaDangKy) }).ToList();
             return lst_dk;
         }
+
+        public int get_sum_tk(DateTime dtbd, DateTime dtkt, int matour)
+        {
+            int sum = db.Search(x => x.NgayDK >= dtbd && x.NgayDK <= dtkt && x.Doan.MaTour == matour).Sum(x => x.GiaDangKy);
+            return sum;
+        }
+
      }
 }
