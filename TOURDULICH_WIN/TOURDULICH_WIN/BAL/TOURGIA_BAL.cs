@@ -27,8 +27,10 @@ namespace TOURDULICH_WIN.BAL
             List<Tour_Gia> tour_gia = tourgia_db.Search(x => x.MaTour == ma).ToList();
             return tour_gia;
         }
-
-
+        public bool Insert(Tour_Gia t)
+        {
+            return tourgia_db.Insert(t);
+        }
 
     }
 }

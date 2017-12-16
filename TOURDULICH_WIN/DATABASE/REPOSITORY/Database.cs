@@ -6,6 +6,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity.Migrations;
 
 namespace DATABASE.REPOSITORY
 {
@@ -67,6 +68,12 @@ namespace DATABASE.REPOSITORY
             }
             return ok;
         }
+
+        public void Detach(T dto)
+        {
+            db.Entry(dto).State = EntityState.Detached;      
+        }
+
 
         public List<T> Search(Expression<Func<T, bool>> where)
         {
