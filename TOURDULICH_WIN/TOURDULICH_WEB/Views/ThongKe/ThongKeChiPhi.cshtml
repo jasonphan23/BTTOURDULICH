@@ -3,7 +3,6 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
 <h2>Thống kê chi phí</h2>
 
     <div class="panel panel-primary">
@@ -12,7 +11,7 @@
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
-            <div class="col-lg-4" style="height: 130px;">
+            <div class="col-lg-4" >
                 <label for="start" class="col-lg-4">Từ ngày:</label>
                 <div class="form-group">
                     <div class='input-group col-lg-8  date' id='tungay'>
@@ -23,7 +22,7 @@
                     </div>
                 </div>
             </div>
-             <div class="col-lg-4" style="height: 130px;">
+             <div class="col-lg-4">
                 <label for="start" class="col-lg-4">Đến ngày:</label>
                 <div class="form-group">
                     <div class='input-group col-lg-8  date' id='denngay'>
@@ -34,13 +33,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4" style="height: 130px;">
+            <div class="col-lg-4" ">
                 <label for="start" class="col-lg-2">Tour: </label>
                  <div class="form-group col-lg-10">
                 @Html.DropDownList("dsTour", ViewBag.LayDSTour as SelectList, null, new { @class = "form-control",@id="tentour", @name = "tentour" })
                 </div>
             </div>
-            <div class="col-lg-4" style="height: 130px;">
+            <div class="col-lg-4">
                 <button id="laydulieu" class="btn btn-success">Lấy dữ liệu</button>
             </div>
             <div class="content_doanhthu">

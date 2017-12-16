@@ -12,7 +12,7 @@
         </div>
         <!-- /.panel-heading -->
         <div class="panel-body">
-            <div class="col-lg-4" style="height: 130px;">
+            <div class="col-lg-4">
                 <label for="start" class="col-lg-4">Từ ngày:</label>
                 <div class="form-group">
                     <div class='input-group col-lg-8  date' id='tungay'>
@@ -23,7 +23,7 @@
                     </div>
                 </div>
             </div>
-             <div class="col-lg-4" style="height: 130px;">
+             <div class="col-lg-4">
                 <label for="start" class="col-lg-4">Đến ngày:</label>
                 <div class="form-group">
                     <div class='input-group col-lg-8  date' id='denngay'>
@@ -34,13 +34,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4" style="height: 130px;">
+            <div class="col-lg-4">
                 <label for="start" class="col-lg-4">Nhân viên: </label>
                  <div class="form-group col-lg-8">
                 @Html.DropDownList("dsNV", ViewBag.LayDSNV as SelectList, null, new { @class = "form-control",@id="tennv", @name = "tennv" })
                 </div>
             </div>
-            <div class="col-lg-4" style="height: 130px;">
+            <div class="col-lg-4">
                 <button id="laydulieu" class="btn btn-success">Lấy dữ liệu</button>
             </div>
             <div class="content_doanhthu">
