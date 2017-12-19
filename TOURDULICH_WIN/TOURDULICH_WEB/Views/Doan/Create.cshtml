@@ -1,0 +1,399 @@
+﻿@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+               Thêm đoàn mới
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+            <form method="post" action="/Doan/Create">
+                <div class="form-group col-md-6">
+                    <label for="ten_doan">Tên đoàn:</label>
+                    <input id="ten_doan" class="form-control">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ten_tour">Tour :</label>
+                    <input id="ten_tour" class="form-control" type="text">
+                    <input id="id_tour" type="hidden">
+                </div>
+                <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Ngày bắt đầu:</label>
+                    
+                        <div class='input-group date' id='datetimepicker8'>
+                            <input type='text' id="ngaybatdau" class="form-control" placeholder="dd/mm/yyyy" name="ngaybatdau" />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+           
+                </div>
+                   <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Ngày kết thúc:</label>
+                    
+                        <div class='input-group date' id='datetimepicker9'>
+                            <input type='text' id="ngaykethuc" class="form-control" placeholder="dd/mm/yyyy" name="ngayketthuc" />
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+           
+                </div>
+                  <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Mô tả Chi Tiết:</label><br />
+                    <textarea rows="4" cols="68">
+              
+                    </textarea>
+                </div>
+                
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Chọn trưởng đoàn:</label>
+                    <input type="text" class="form-control" id="truongdoan" placeholder="Nhập vào tên trưởng đoàn">
+                </div>
+
+                
+                <p>
+                    <input type="hidden" id="truongdoan_id" />
+                </p>
+
+                <div class="col-md-12">
+
+                     <h3> Danh sách khách sạn</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên khách sạn</label>
+                    <input type="text" class="form-control" name="tenkhachsan"  id="tenkhachsan"  placeholder="Nhập vào tên khách sạn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" class="form-control" name="giaks" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  id="giaks" placeholder="Nhập vào giá khách sạn" >
+                </div>
+                      <div class="form-group col-md-12">                
+                      <label for="tentour">Địa chỉ </label>
+                    <input type="text" class="form-control" name="diachiks" id="diachiks" placeholder="Nhập vào địa chỉ khách sạn">
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dskhachsan-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên khách sạn</th>
+                            <th>Giá</th>
+                             <th>Địa chỉ</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dskhachsandoan-content">
+                        </tbody>
+                        </table>
+                        </div>
+
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-primary pull-right" id="themkhachsan">Thêm khách sạn</button>
+                    </div>
+               </div>
+                   <hr/>
+                     <div class="col-md-12">
+
+                     <h3> Danh sách quán ăn</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên quán ăn</label>
+                    <input type="text" class="form-control" name="tenquanan" id="tenquanan"  placeholder="Nhập vào tên quán ăn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" class="form-control" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  name="giaquan" id="giaquan" placeholder="Nhập vào giá quán ăn" >
+                </div>
+                      <div class="form-group col-md-12">                
+                      <label for="tentour">Địa chỉ </label>
+                    <input type="text" class="form-control" name="diachiqa" id="diachiqa" placeholder="Nhập vào địa chỉ quán ăn">
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dsquanan-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên quán ăn</th>
+                            <th>Giá</th>
+                             <th>Địa chỉ</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dsquanandoan-content">
+                        </tbody>
+                        </table>
+
+                        </div>
+                           <div class="form-group col-md-12">
+                          <button class="btn btn-primary pull-right" id="themquanan">Thêm Quán Ăn</button>
+                    </div>                  
+               </div>
+                   <hr/>
+                  <div class="col-md-12">
+
+                     <h3> Danh sách phương tiện</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên phương tiện</label>
+                    <input type="text" class="form-control" name="tenquansan" id="tenphuongtien" placeholder="Nhập vào tên quán ăn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  class="form-control" name="giaquan" id="giaphuongtien" placeholder="Nhập vào giá quán ăn" >
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dsphuongtien-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên phương tiện</th>
+                            <th>Giá</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dsphuongtien-content">
+                        </tbody>
+                        </table>
+
+                        </div>
+                            <div class="form-group col-md-12">
+                      <button class="btn btn-primary pull-right" id="themphuongtien">Thêm Phương Tiện</button>
+                    </div>
+               </div>
+                   <div class="col-md-12">
+
+                     <h3> Danh sách chi phí khác</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên chi phí khác</label>
+                    <input type="text" class="form-control" name="tenquansan" id="tencpkhac" required placeholder="Nhập vào tên quán ăn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  class="form-control" name="giaquan" id="giacpkhac" placeholder="Nhập vào giá quán ăn" >
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dscpkhac-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên chi phí khác</th>
+                            <th>Giá</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dscpkhac-content">
+                        </tbody>
+                        </table>
+
+                        </div>
+                          <div class="form-group col-md-12">
+                            <button class="btn btn-primary pull-right" id="themcpk">Thêm Chi Phí Khác</button>
+                    </div>
+               </div>
+
+                <div class="form-group col-md-12">
+                    <input type="submit" class="btn btn-primary" value="Thêm" />
+                </div>
+            </form>
+        
+            </div>
+        </div>
+        
+
+
+
+     </div>
+</div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+          
+            $("#truongdoan").autocomplete({
+                source: '/Doan/laydanhsachnhanvien',
+                dataType: "json",
+                select: function (event, ui) {
+                    $('#truongdoan_id').val(ui.item.value);
+                    event.preventDefault();
+                    $("#truongdoan").val(ui.item.label);
+                },
+                minLength: 1
+
+            });
+
+            $("#truongdoan").autocomplete({
+                source: '/Tour/laydanhsachtour',
+                dataType: "json",
+                select: function (event, ui) {
+                    $('#tour_id').val(ui.item.value);
+                    event.preventDefault();
+                    $("#tour").val(ui.item.label);
+                },
+                minLength: 1
+
+            });
+
+           
+            $('#datetimepicker8').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+            $('#datetimepicker9').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+            
+            $("#themkhachsan").click(function (e) {
+                var tenks = $('#tenkhachsan').val();
+                var giaks = $('#giaks').val();
+                var dcks = $('#diachiks').val();
+                console.log(tenks);
+                if (tenks == '') {
+                    alert('Tên khách sạn ko dc rỗng');
+                }
+                else if (giaks == '') {
+                    alert('Gía khách sạn ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddKhachSan",
+                        data: {
+                            tenkhachsan: tenks, // < note use of 'this' here
+                            gia : giaks,
+                            diachiks : dcks,
+                        },
+                        success: function (result) {
+                            $('#dskhachsandoan-content').append(
+               "<tr>" +
+               "<td>" + tenks + "</td>" +
+               "<td>" + giaks + "</td>" +
+                "<td>" + dcks + "</td>");
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+            $("#themquanan").click(function (e) {
+                var tenqa = $('#tenquanan').val();
+                var giaqa = $('#giaquan').val();
+                var dcqa = $('#diachiqa').val();
+                console.log(tenqa);
+                if (tenqa == '') {
+                    alert('Tên khách sạn ko dc rỗng');
+                }
+                else if (giaqa == '') {
+                    alert('Gía khách sạn ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddQuanAn",
+                        data: {
+                            tenquanan: tenqa, // < note use of 'this' here
+                            gia: giaqa,
+                            dc: dcqa,
+                        },
+                        success: function (result) {
+                            $('#dsquanandoan-content').append(
+               "<tr>" +
+               "<td>" + tenqa + "</td>" +
+               "<td>" + giaqa + "</td>" +
+                "<td>" + dcqa + "</td>");
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+            
+
+
+            $("#themphuongtien").click(function (e) {
+                var tenpt = $('#tenphuongtien').val();
+                var giapt = $('#giaphuongtien').val();
+                if (tenpt == '') {
+                    alert('Tên phương tiện ko dc rỗng');
+                }
+                else if (giapt == '') {
+                    alert('Gía phương tiện ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddPhuongTien",
+                        data: {
+                            tenphuongtien: tenpt, // < note use of 'this' here
+                            gia: giapt,
+                        },
+                        success: function (result) {
+                            $('#dsphuongtien-content').append(
+               "<tr>" +
+               "<td>" + tenpt + "</td>" +
+               "<td>" + giapt + "</td>");
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+            $("#themcpk").click(function (e) {
+                var tencpk = $('#tencpkhac').val();
+                var giacpk = $('#giacpkhac').val();
+                if (tencpk == '') {
+                    alert('Tên phương tiện ko dc rỗng');
+                }
+                else if (giacpk == '') {
+                    alert('Gía phương tiện ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddCPK",
+                        data: {
+                            tencpk: tencpk, // < note use of 'this' here
+                            gia: giacpk,
+                        },
+                        success: function (result) {
+                            $('#dscpkhac-content').append(
+               "<tr>" +
+               "<td>" + tencpk + "</td>" +
+               "<td>" + giacpk + "</td>");
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+
+         
+        });
+    </script>
+}

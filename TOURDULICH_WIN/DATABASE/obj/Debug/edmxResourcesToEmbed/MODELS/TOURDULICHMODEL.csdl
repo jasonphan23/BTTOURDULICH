@@ -61,6 +61,7 @@
     <NavigationProperty Name="Doan_QuanAn" Relationship="Self.FK__Doan_Quan__MaDoa__498EEC8D" FromRole="Doan" ToRole="Doan_QuanAn" />
     <NavigationProperty Name="PhanCongs" Relationship="Self.FK__PhanCong__MaDoan__4B7734FF" FromRole="Doan" ToRole="PhanCong" />
     <NavigationProperty Name="Tour" Relationship="Self.FK_Doan_MaTour" FromRole="Doan" ToRole="Tour" />
+    <NavigationProperty Name="Doan_KhachSan" Relationship="TourDuLichModel.FK_DoanKS" FromRole="Doan" ToRole="Doan_KhachSan" />
   </EntityType>
   <EntityType Name="Doan_ChiPhiKhac">
     <Key>
@@ -77,11 +78,12 @@
       <PropertyRef Name="MaDKS" />
     </Key>
     <Property Name="MaDKS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaTour" Type="Int32" Nullable="false" />
     <Property Name="TenKS" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Gia" Type="Int32" Nullable="false" />
     <Property Name="DiaChi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Tour" Relationship="Self.FK__Doan_Khac__MaTou__47A6A41B" FromRole="Doan_KhachSan" ToRole="Tour" />
+    <Property Name="MaDoan" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Doan" Relationship="TourDuLichModel.FK_DoanKS" FromRole="Doan_KhachSan" ToRole="Doan" />
   </EntityType>
   <EntityType Name="Doan_PhuongTien">
     <Key>
@@ -541,5 +543,21 @@
       <End Role="Tour" EntitySet="Tours" />
       <End Role="Tour_Gia" EntitySet="Tour_Gia" />
     </AssociationSet>
+    <AssociationSet Name="FK_DoanKS" Association="TourDuLichModel.FK_DoanKS">
+      <End Role="Doan" EntitySet="Doans" />
+      <End Role="Doan_KhachSan" EntitySet="Doan_KhachSan" />
+    </AssociationSet>
   </EntityContainer>
+  <Association Name="FK_DoanKS">
+    <End Type="TourDuLichModel.Doan" Role="Doan" Multiplicity="1" />
+    <End Type="TourDuLichModel.Doan_KhachSan" Role="Doan_KhachSan" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doan">
+        <PropertyRef Name="MaDoan" />
+      </Principal>
+      <Dependent Role="Doan_KhachSan">
+        <PropertyRef Name="MaDoan" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

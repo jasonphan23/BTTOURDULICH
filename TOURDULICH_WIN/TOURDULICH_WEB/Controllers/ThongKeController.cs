@@ -6,6 +6,8 @@ using System.Web;
 using System.Web.Mvc;
 using DATABASE.MODELS;
 using DATABASE.REPOSITORY;
+using DATABASE.MODELS;
+using DATABASE.REPOSITORY;
 
 namespace TOURDULICH_WEB.Controllers
 {

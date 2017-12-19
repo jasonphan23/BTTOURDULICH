@@ -15,11 +15,11 @@ namespace DATABASE.MODELS
     public partial class Doan_KhachSan
     {
         public int MaDKS { get; set; }
-        public int MaTour { get; set; }
         public string TenKS { get; set; }
         public int Gia { get; set; }
         public string DiaChi { get; set; }
+        public int MaDoan { get; set; }
     
-        public virtual Tour Tour { get; set; }
+        public virtual Doan Doan { get; set; }
     }
 }

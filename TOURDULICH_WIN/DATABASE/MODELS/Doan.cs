@@ -17,12 +17,13 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Doan()
         {
-            this.CTDoans = new HashSet<CTDoan>();
-            this.DangKis = new HashSet<DangKi>();
+            this.CTDoan = new HashSet<CTDoan>();
+            this.DangKi = new HashSet<DangKi>();
             this.Doan_ChiPhiKhac = new HashSet<Doan_ChiPhiKhac>();
             this.Doan_PhuongTien = new HashSet<Doan_PhuongTien>();
             this.Doan_QuanAn = new HashSet<Doan_QuanAn>();
-            this.PhanCongs = new HashSet<PhanCong>();
+            this.PhanCong = new HashSet<PhanCong>();
+            this.Doan_KhachSan = new HashSet<Doan_KhachSan>();
         }
     
         public int MaDoan { get; set; }
@@ -34,9 +35,9 @@ namespace DATABASE.MODELS
         public int MaTour { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CTDoan> CTDoans { get; set; }
+        public virtual ICollection<CTDoan> CTDoan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DangKi> DangKis { get; set; }
+        public virtual ICollection<DangKi> DangKi { get; set; }
         public virtual NhanVien NhanVien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Doan_ChiPhiKhac> Doan_ChiPhiKhac { get; set; }
@@ -44,8 +45,10 @@ namespace DATABASE.MODELS
         public virtual ICollection<Doan_PhuongTien> Doan_PhuongTien { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Doan_QuanAn> Doan_QuanAn { get; set; }
-   
-        public virtual ICollection<PhanCong> PhanCongs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhanCong> PhanCong { get; set; }
         public virtual Tour Tour { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Doan_KhachSan> Doan_KhachSan { get; set; }
     }
 }

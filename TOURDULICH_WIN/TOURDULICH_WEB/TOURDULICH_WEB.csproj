@@ -116,9 +116,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\DoanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
     <Compile Include="Controllers\ThongKeController.cs" />
+    <Compile Include="Controllers\TourController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -306,6 +308,8 @@
     <Content Include="Views\KhachHang\Index.cshtml" />
     <Content Include="Views\KhachHang\Create.cshtml" />
     <Content Include="Views\KhachHang\DsDoan.cshtml" />
+    <Content Include="Views\Doan\Index.cshtml" />
+    <Content Include="Views\Doan\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

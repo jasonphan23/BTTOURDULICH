@@ -82,6 +82,10 @@ namespace DATABASE.REPOSITORY
         {
             return db.Set<T>().Any(where);
         }
+        public void Detach(T dto)
+        {
+            db.Entry(dto).State = EntityState.Detached;
+        }
 
     }
 

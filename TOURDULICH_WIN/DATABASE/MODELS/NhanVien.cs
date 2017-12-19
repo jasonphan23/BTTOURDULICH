@@ -17,8 +17,8 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public NhanVien()
         {
-            this.Doans = new HashSet<Doan>();
-            this.PhanCongs = new HashSet<PhanCong>();
+            this.Doan = new HashSet<Doan>();
+            this.PhanCong = new HashSet<PhanCong>();
         }
     
         public int MaNV { get; set; }
@@ -31,8 +31,8 @@ namespace DATABASE.MODELS
         public bool TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Doan> Doans { get; set; }
+        public virtual ICollection<Doan> Doan { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhanCong> PhanCongs { get; set; }
+        public virtual ICollection<PhanCong> PhanCong { get; set; }
     }
 }

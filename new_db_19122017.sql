@@ -1,0 +1,10 @@
+
+ALTER TABLE Doan_KhachSan
+DROP COLUMN MaTour
+
+ALTER TABLE Doan_KhachSan
+ADD MaDoan int not null
+
+ALTER TABLE Doan_KhachSan
+ADD CONSTRAINT FK_DoanKS
+FOREIGN KEY (MaDoan) REFERENCES Doan(MaDoan)

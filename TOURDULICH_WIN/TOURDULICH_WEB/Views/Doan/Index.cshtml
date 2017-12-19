@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "LoadThu_Chi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var dsdoan = (List<DATABASE.MODELS.Doan>)ViewBag.DsDoan;
+    int i = 0;
+}
+
+<h2>Danh sách đoàn</h2>
+
+<a href="/Doan/Create" class="btnAdd btn btn-success pull-right text-color" data-toggle="modal">Thêm mới</a>
+
+<br /><br />
+<table class="table table-bordered table-hover" id="dataTables-dsdoan">
+    <thead class="thead-default">
+        <tr>
+            <th>Mã đoàn</th>
+            <th>Tên đoàn</th>
+            <th>Ngày khởi hành</th>
+            <th>Ngày kết thúc</th>
+
+        </tr>
+
+    </thead>
+    <tbody>
+        @if (dsdoan == null)
+        { 
+            <tr>
+                <td colspan="5" style="text-align: center;">Không có đoàn phù hợp
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var item in dsdoan)
+            {
+                <span class="hidden">@(i++)</span>           
+            <tr id="@i">
+                <td>
+                    @item.MaDoan
+                </td>
+                <td>
+                    @item.Ten
+                </td>
+                <td>
+                    @item.NgayKH
+                </td>
+                <td>
+                    @item.NgayKT
+                </td>
+    
+
+            </tr>
+            }
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        
+    </script>
+}

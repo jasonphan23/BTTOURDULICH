@@ -17,7 +17,7 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public KhachHang()
         {
-            this.DangKis = new HashSet<DangKi>();
+            this.DangKi = new HashSet<DangKi>();
         }
     
         public int MaKH { get; set; }
@@ -32,6 +32,6 @@ namespace DATABASE.MODELS
         public bool TrangThai { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<DangKi> DangKis { get; set; }
+        public virtual ICollection<DangKi> DangKi { get; set; }
     }
 }

@@ -17,13 +17,13 @@ namespace DATABASE.MODELS
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public LoaiHinhDL()
         {
-            this.Tours = new HashSet<Tour>();
+            this.Tour = new HashSet<Tour>();
         }
     
         public int MaLHDL { get; set; }
         public string Ten { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Tour> Tours { get; set; }
+        public virtual ICollection<Tour> Tour { get; set; }
     }
 }
