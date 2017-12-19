@@ -28,6 +28,12 @@ namespace TOURDULICH_WEB.Controllers
             Session["listchiphikhac"] = new List<Doan_ChiPhiKhac>();
             return View();
         }
+        [HttpPost]
+        public ActionResult Create(FormCollection f)
+        {
+
+            return View();
+        }
         public JsonResult laydanhsachnhanvien()
         {
             var list = dbnv.GetList().Select(x => new { label = x.HoTen, value = x.MaNV,}).ToList() ;
