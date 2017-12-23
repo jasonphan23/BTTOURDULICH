@@ -17,7 +17,7 @@
             <th>Tên đoàn</th>
             <th>Ngày khởi hành</th>
             <th>Ngày kết thúc</th>
-
+            <th>Hành động</th>
         </tr>
 
     </thead>
@@ -47,7 +47,10 @@
                 <td>
                     @item.NgayKT
                 </td>
-    
+                  <td>
+                   <a href="/Doan/Edit/@item.MaDoan" class="btnEdit btn btn-warning btn-xs" data-id="@item.MaDoan">Sửa</a>
+                   <a href="@Url.Action("Delete","Doan",new {madoan = @item.MaDoan })" class="btnDelete btn btn-danger btn-xs"data-id="@item.MaDoan">Xóa</a>
+                </td>
 
             </tr>
             }

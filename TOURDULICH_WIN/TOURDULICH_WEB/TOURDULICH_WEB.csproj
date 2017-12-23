@@ -116,6 +116,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ChucVuController.cs" />
     <Compile Include="Controllers\DoanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
@@ -310,6 +311,7 @@
     <Content Include="Views\KhachHang\DsDoan.cshtml" />
     <Content Include="Views\Doan\Index.cshtml" />
     <Content Include="Views\Doan\Create.cshtml" />
+    <Content Include="Views\Doan\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -319,9 +321,17 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BUS\BIZ.csproj">
+      <Project>{bb58d7d8-d720-4021-bfe5-904e5ae6c749}</Project>
+      <Name>BIZ</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DATABASE\DATABASE.csproj">
       <Project>{45fa9096-5c75-44f5-ab6d-28d106f6aa56}</Project>
       <Name>DATABASE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TOURDULICH_WIN\TOURDULICH_WIN.csproj">
+      <Project>{3717f541-1d02-430e-9f0a-2b33b684e7c9}</Project>
+      <Name>TOURDULICH_WIN</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

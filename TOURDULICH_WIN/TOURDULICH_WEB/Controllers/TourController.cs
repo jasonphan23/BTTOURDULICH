@@ -5,17 +5,17 @@ using System.Web;
 using System.Web.Mvc;
 using DATABASE.MODELS;
 using DATABASE.REPOSITORY;
-
+using TOURDULICH_WIN.BIZ;
 namespace TOURDULICH_WEB.Controllers
 {
     public class TourController : Controller
     {
         //
         // GET: /Tour/
-        Database<Tour> dbTour = new Database<Tour>();
+        TOUR_BIZ dbTour = new TOUR_BIZ();
         public JsonResult laydanhsachtour()
         {
-            var list = dbTour.GetList().Select(x => new { label = x.Ten, value = x.MaTour, }).ToList();
+            var list = dbTour.GetListDSWEB();
 
             return Json(list, JsonRequestBehavior.AllowGet);
         }

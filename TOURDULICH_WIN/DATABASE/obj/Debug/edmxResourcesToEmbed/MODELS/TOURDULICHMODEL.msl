@@ -1,15 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TourDuLichModelStoreContainer" CdmEntityContainer="TourDuLichEntities">
-    <EntitySetMapping Name="ChucVus">
-      <EntityTypeMapping TypeName="TourDuLichModel.ChucVu">
-        <MappingFragment StoreEntitySet="ChucVu">
-          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
-          <ScalarProperty Name="Ten" ColumnName="Ten" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="CTDoans">
+    <EntitySetMapping Name="CTDoan">
       <EntityTypeMapping TypeName="TourDuLichModel.CTDoan">
         <MappingFragment StoreEntitySet="CTDoan">
           <ScalarProperty Name="MaCTDoan" ColumnName="MaCTDoan" />
@@ -21,7 +13,15 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DangKis">
+    <EntitySetMapping Name="ChucVu">
+      <EntityTypeMapping TypeName="TourDuLichModel.ChucVu">
+        <MappingFragment StoreEntitySet="ChucVu">
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="Ten" ColumnName="Ten" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DangKi">
       <EntityTypeMapping TypeName="TourDuLichModel.DangKi">
         <MappingFragment StoreEntitySet="DangKi">
           <ScalarProperty Name="MaDK" ColumnName="MaDK" />
@@ -32,7 +32,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="DiaDiems">
+    <EntitySetMapping Name="DiaDiem">
       <EntityTypeMapping TypeName="TourDuLichModel.DiaDiem">
         <MappingFragment StoreEntitySet="DiaDiem">
           <ScalarProperty Name="MaDD" ColumnName="MaDD" />
@@ -41,7 +41,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Doans">
+    <EntitySetMapping Name="Doan">
       <EntityTypeMapping TypeName="TourDuLichModel.Doan">
         <MappingFragment StoreEntitySet="Doan">
           <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
@@ -67,11 +67,11 @@
     <EntitySetMapping Name="Doan_KhachSan">
       <EntityTypeMapping TypeName="TourDuLichModel.Doan_KhachSan">
         <MappingFragment StoreEntitySet="Doan_KhachSan">
-          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
           <ScalarProperty Name="MaDKS" ColumnName="MaDKS" />
           <ScalarProperty Name="TenKS" ColumnName="TenKS" />
           <ScalarProperty Name="Gia" ColumnName="Gia" />
           <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+          <ScalarProperty Name="MaDoan" ColumnName="MaDoan" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -96,7 +96,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="KhachHangs">
+    <EntitySetMapping Name="KhachHang">
       <EntityTypeMapping TypeName="TourDuLichModel.KhachHang">
         <MappingFragment StoreEntitySet="KhachHang">
           <ScalarProperty Name="MaKH" ColumnName="MaKH" />
@@ -112,7 +112,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="LoaiHinhDLs">
+    <EntitySetMapping Name="LoaiHinhDL">
       <EntityTypeMapping TypeName="TourDuLichModel.LoaiHinhDL">
         <MappingFragment StoreEntitySet="LoaiHinhDL">
           <ScalarProperty Name="MaLHDL" ColumnName="MaLHDL" />
@@ -120,7 +120,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="NhanViens">
+    <EntitySetMapping Name="NhanVien">
       <EntityTypeMapping TypeName="TourDuLichModel.NhanVien">
         <MappingFragment StoreEntitySet="NhanVien">
           <ScalarProperty Name="MaNV" ColumnName="MaNV" />
@@ -134,7 +134,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="PhanCongs">
+    <EntitySetMapping Name="PhanCong">
       <EntityTypeMapping TypeName="TourDuLichModel.PhanCong">
         <MappingFragment StoreEntitySet="PhanCong">
           <ScalarProperty Name="MaPC" ColumnName="MaPC" />
@@ -144,7 +144,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TinhThanhs">
+    <EntitySetMapping Name="TinhThanh">
       <EntityTypeMapping TypeName="TourDuLichModel.TinhThanh">
         <MappingFragment StoreEntitySet="TinhThanh">
           <ScalarProperty Name="MaTT" ColumnName="MaTT" />
@@ -152,7 +152,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Tours">
+    <EntitySetMapping Name="Tour">
       <EntityTypeMapping TypeName="TourDuLichModel.Tour">
         <MappingFragment StoreEntitySet="Tour">
           <ScalarProperty Name="MaTour" ColumnName="MaTour" />

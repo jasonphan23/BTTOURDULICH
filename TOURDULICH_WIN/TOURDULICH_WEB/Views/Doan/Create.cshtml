@@ -1,9 +1,10 @@
 ﻿@{
     ViewBag.Title = "Create";
+    List<DATABASE.MODELS.ChucVu> dschucvu = (List<DATABASE.MODELS.ChucVu>)ViewBag.Chucvu;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Tạo đoàn mới</h2>
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-primary">
@@ -16,19 +17,19 @@
             <form method="post" action="/Doan/Create">
                 <div class="form-group col-md-6">
                     <label for="ten_doan">Tên đoàn:</label>
-                    <input id="ten_doan" class="form-control">
+                    <input id="ten_doan" class="form-control" required name="tendoan">
                 </div>
                 <div class="form-group col-md-6">
-                    <label for="ten_tour">Tour :</label>
-                    <input id="ten_tour" class="form-control" type="text">
-                    <input id="id_tour" type="hidden">
+                    <label for="ten_tour">Thuộc Tour :</label>
+                    <input id="ten_tour" class="form-control" type="text" required>
+                    <input id="id_tour" type="hidden" name="id_tour">
                 </div>
                 <div class="form-group col-md-6">
                
                     <label for="ngaynhap">Ngày bắt đầu:</label>
                     
                         <div class='input-group date' id='datetimepicker8'>
-                            <input type='text' id="ngaybatdau" class="form-control" placeholder="dd/mm/yyyy" name="ngaybatdau" />
+                            <input type='text' id="ngaybatdau" class="form-control" placeholder="dd/mm/yyyy" name="ngaybatdau" required />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -40,7 +41,7 @@
                     <label for="ngaynhap">Ngày kết thúc:</label>
                     
                         <div class='input-group date' id='datetimepicker9'>
-                            <input type='text' id="ngaykethuc" class="form-control" placeholder="dd/mm/yyyy" name="ngayketthuc" />
+                            <input type='text' id="ngaykethuc" class="form-control" placeholder="dd/mm/yyyy" required name="ngayketthuc" />
                             <span class="input-group-addon">
                                 <span class="fa fa-calendar"></span>
                             </span>
@@ -50,19 +51,19 @@
                   <div class="form-group col-md-6">
                
                     <label for="ngaynhap">Mô tả Chi Tiết:</label><br />
-                    <textarea rows="4" cols="68">
+                    <textarea rows="4" cols="68" name="motachitiet">
               
                     </textarea>
                 </div>
                 
                 <div class="form-group col-md-6">                  
                 <label for="tentour">Chọn trưởng đoàn:</label>
-                    <input type="text" class="form-control" id="truongdoan" placeholder="Nhập vào tên trưởng đoàn">
+                    <input type="text" class="form-control" id="truongdoan" required placeholder="Nhập vào tên trưởng đoàn">
                 </div>
 
                 
                 <p>
-                    <input type="hidden" id="truongdoan_id" />
+                    <input type="hidden" id="truongdoan_id"name="truongdoan_id" />
                 </p>
 
                 <div class="col-md-12">
@@ -169,7 +170,7 @@
                      <h3> Danh sách chi phí khác</h3>
                 <div class="form-group col-md-6">                  
                 <label for="tentour">Tên chi phí khác</label>
-                    <input type="text" class="form-control" name="tenquansan" id="tencpkhac" required placeholder="Nhập vào tên quán ăn">
+                    <input type="text" class="form-control" name="tenquansan" id="tencpkhac"  placeholder="Nhập vào tên quán ăn">
                 </div>
                             <div class="form-group col-md-6">                
                       <label for="tentour">Giá </label>
@@ -193,6 +194,43 @@
                             <button class="btn btn-primary pull-right" id="themcpk">Thêm Chi Phí Khác</button>
                     </div>
                </div>
+
+                       <div class="col-md-12">
+
+                     <h3> Phân công</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên nhân viên </label>
+                    <input type="text" class="form-control" name="tennhanvien_cv" id="tennhanvien_cv" placeholder="Nhập vào tên quán ăn">
+                </div>
+                                <input type="hidden" class="form-control" name="idnhanvien_cv" id="idnhanvien_cv">
+                            <div class="form-group col-md-6">            
+                      <label for="tentour">Công việc </label>
+                      <select class="form-control" id="cv">
+                          @foreach (var cv in ViewBag.Chucvu)
+                          {        
+                              <option value="@cv.MaCV">@cv.Ten</option>    
+                          }
+                      </select>
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dsphancong-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên nhân viên</th>
+                            <th>Công việc</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dsphancong-content">
+                        </tbody>
+                        </table>
+
+                        </div>
+                          <div class="form-group col-md-12">
+                            <button class="btn btn-primary pull-right" id="themcongviec">Thêm Phân công</button>
+                    </div>
+               </div>
+
 
                 <div class="form-group col-md-12">
                     <input type="submit" class="btn btn-primary" value="Thêm" />
@@ -223,13 +261,27 @@
 
             });
 
-            $("#truongdoan").autocomplete({
+            $("#tennhanvien_cv").autocomplete({
+                source: '/Doan/laydanhsachnhanvien',
+                dataType: "json",
+                select: function (event, ui) {
+                    $('#idnhanvien_cv').val(ui.item.value);
+                    event.preventDefault();
+                    $("#tennhanvien_cv").val(ui.item.label);
+                },
+                minLength: 1
+
+            });
+
+
+
+            $("#ten_tour").autocomplete({
                 source: '/Tour/laydanhsachtour',
                 dataType: "json",
                 select: function (event, ui) {
-                    $('#tour_id').val(ui.item.value);
+                    $('#id_tour').val(ui.item.value);
                     event.preventDefault();
-                    $("#tour").val(ui.item.label);
+                    $("#ten_tour").val(ui.item.label);
                 },
                 minLength: 1
 
@@ -383,6 +435,39 @@
                "<tr>" +
                "<td>" + tencpk + "</td>" +
                "<td>" + giacpk + "</td>");
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+
+            $("#themcongviec").click(function (e) {
+                var idnv = $('#idnhanvien_cv').val();
+                var tennv = $('#tennhanvien_cv').val();
+                var idcv = $('#cv').val();
+                var tencv = $("#cv option:selected").text();
+
+                if (idnv == '') {
+                    alert('Nhân viên không được rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddCV",
+                        data: {
+                            idnv: idnv, // < note use of 'this' here
+                            idcv: idcv,
+                        },
+                        success: function (result) {
+                            $('#dsphancong-content').append(
+               "<tr>" +
+               "<td>" + tennv + "</td>" +
+               "<td>" + tencv + "</td>");
                         },
                         error: function (result) {
                             alert('Có lỗi xảy ra !!!');

@@ -54,14 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BAL\DANGKY_BAL.cs" />
-    <Compile Include="BAL\DOAN_BAL.cs" />
-    <Compile Include="BAL\TOURDIADIEM_BAL.cs" />
-    <Compile Include="BAL\DIADIEM_BAL.cs" />
-    <Compile Include="BAL\LOAIHINH_BAL.cs" />
-    <Compile Include="BAL\THANHPHO_BAL.cs" />
-    <Compile Include="BAL\TOURGIA_BAL.cs" />
-    <Compile Include="BAL\TOUR_BAL.cs" />
     <Compile Include="GUI\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +94,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BUS\BIZ.csproj">
+      <Project>{bb58d7d8-d720-4021-bfe5-904e5ae6c749}</Project>
+      <Name>BIZ</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DATABASE\DATABASE.csproj">
       <Project>{45fa9096-5c75-44f5-ab6d-28d106f6aa56}</Project>
       <Name>DATABASE</Name>

@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label47 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
@@ -85,6 +87,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.date_ketthucnew = new System.Windows.Forms.DateTimePicker();
             this.data_apdungnew = new System.Windows.Forms.DateTimePicker();
             this.cbb_noikt_new = new System.Windows.Forms.ComboBox();
@@ -143,9 +146,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.data_giatour = new System.Windows.Forms.DateTimePicker();
             this.dtgv_banggia = new System.Windows.Forms.DataGridView();
-            this.label28 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label47 = new System.Windows.Forms.Label();
+            this.button11 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabControl2.SuspendLayout();
@@ -208,6 +209,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button11);
             this.tabPage3.Controls.Add(this.textBox2);
             this.tabPage3.Controls.Add(this.label47);
             this.tabPage3.Controls.Add(this.groupBox3);
@@ -222,6 +224,23 @@
             this.tabPage3.Text = "Thông tin tour";
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.v);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(72, 22);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(422, 20);
+            this.textBox2.TabIndex = 28;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(3, 27);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(63, 13);
+            this.label47.TabIndex = 27;
+            this.label47.Text = "Tìm tên tour";
             // 
             // groupBox3
             // 
@@ -357,15 +376,15 @@
             this.gia,
             this.apdungtu,
             this.apdungden});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.NullValue = null;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgv_gia.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.NullValue = null;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgv_gia.DefaultCellStyle = dataGridViewCellStyle1;
             this.dtgv_gia.Location = new System.Drawing.Point(13, 102);
             this.dtgv_gia.Name = "dtgv_gia";
             this.dtgv_gia.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -604,10 +623,10 @@
             // datagv_tour
             // 
             this.datagv_tour.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datagv_tour.Location = new System.Drawing.Point(3, 55);
+            this.datagv_tour.Location = new System.Drawing.Point(3, 82);
             this.datagv_tour.Name = "datagv_tour";
             this.datagv_tour.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagv_tour.Size = new System.Drawing.Size(491, 552);
+            this.datagv_tour.Size = new System.Drawing.Size(491, 525);
             this.datagv_tour.TabIndex = 0;
             this.datagv_tour.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.datagv_tour_CellClick);
             this.datagv_tour.Click += new System.EventHandler(this.datagv_tour_Click);
@@ -747,6 +766,15 @@
             this.groupBox6.TabIndex = 21;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Thông tin cơ bản";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(228, 314);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(30, 13);
+            this.label28.TabIndex = 30;
+            this.label28.Text = "VNĐ";
             // 
             // date_ketthucnew
             // 
@@ -1306,31 +1334,15 @@
             this.dtgv_banggia.Size = new System.Drawing.Size(751, 475);
             this.dtgv_banggia.TabIndex = 16;
             // 
-            // label28
+            // button11
             // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(228, 314);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(30, 13);
-            this.label28.TabIndex = 30;
-            this.label28.Text = "VNĐ";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(72, 22);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(422, 20);
-            this.textBox2.TabIndex = 28;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged_1);
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(3, 27);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(63, 13);
-            this.label47.TabIndex = 27;
-            this.label47.Text = "Tìm tên tour";
+            this.button11.Location = new System.Drawing.Point(411, 54);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(83, 23);
+            this.button11.TabIndex = 29;
+            this.button11.Text = "Làm mới";
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // Form2
             // 
@@ -1498,6 +1510,7 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Button button11;
 
     }
 }

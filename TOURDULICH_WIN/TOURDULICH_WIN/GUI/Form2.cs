@@ -4,25 +4,25 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using TOURDULICH_WIN.BAL;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DATABASE.MODELS;
 using System.Collections;
 using DATABASE.REPOSITORY;
+using TOURDULICH_WIN.BIZ;
 using System.Globalization;
 namespace TOURDULICH_WIN.GUI
 {
     public partial class Form2 : Form
     {
 
-        DIADIEM_BAL dd_bal;
-        THANHPHO_BAL tp_bal;
-        LOAIHINH_BAL lh_bal;
-        TOUR_BAL tour_bal;
-        TOURGIA_BAL tourgia_bal;
-        TOURDIAIDIEM_BAL tourdd_bal;
+        DIADIEM_BIZ dd_BIZ;
+        THANHPHO_BIZ tp_BIZ;
+        LOAIHINH_BIZ lh_BIZ;
+        TOUR_BIZ tour_BIZ;
+        TOURGIA_BIZ tourgia_BIZ;
+        TOURDIAIDIEM_BIZ tourdd_BIZ;
         BindingSource tour_biding = new BindingSource();
 
 
@@ -33,15 +33,15 @@ namespace TOURDULICH_WIN.GUI
         }
         public void LoadCacDS()
         {
-            dd_bal = new DIADIEM_BAL();
-            IEnumerable lst_dd = dd_bal.GetList();
+            dd_BIZ = new DIADIEM_BIZ();
+            IEnumerable lst_dd = dd_BIZ.GetList();
             dtgv_diadiem.DataSource = lst_dd;
             dtgv_dd_new.DataSource = lst_dd;
             dtgv_diadiem.Columns["MaDD"].Visible = false;
 
 
-            tp_bal = new THANHPHO_BAL();
-            IEnumerable lst_tt = tp_bal.GetList();
+            tp_BIZ = new THANHPHO_BIZ();
+            IEnumerable lst_tt = tp_BIZ.GetList();
             cbb_noibd.DataSource = lst_tt;
             cbb_noibd.ValueMember = "MaTT";
             cbb_noibd.DisplayMember = "Ten";
@@ -49,7 +49,7 @@ namespace TOURDULICH_WIN.GUI
             cbb_noibd_new.ValueMember = "MaTT";
             cbb_noibd_new.DisplayMember = "Ten";
 
-            IEnumerable lst_tt_kt = tp_bal.GetList();
+            IEnumerable lst_tt_kt = tp_BIZ.GetList();
 
             cbb_noikt.DataSource = lst_tt_kt;
             cbb_noikt.ValueMember = "MaTT";
@@ -58,8 +58,8 @@ namespace TOURDULICH_WIN.GUI
             cbb_noikt_new.ValueMember = "MaTT";
             cbb_noikt_new.DisplayMember = "Ten";
 
-            lh_bal = new LOAIHINH_BAL();
-            IEnumerable lst_lh = lh_bal.GetList();
+            lh_BIZ = new LOAIHINH_BIZ();
+            IEnumerable lst_lh = lh_BIZ.GetList();
             cbb_loaihinh.DataSource = lst_lh;
             cbb_loaihinh.ValueMember = "MaLHDL";
             cbb_loaihinh.DisplayMember = "Ten";
@@ -68,8 +68,8 @@ namespace TOURDULICH_WIN.GUI
             cbb_loaihinh_new.ValueMember = "MaLHDL";
             cbb_loaihinh_new.DisplayMember = "Ten";
             loadtour();
-            tourgia_bal = new TOURGIA_BAL();
-            tourdd_bal = new TOURDIAIDIEM_BAL();
+            tourgia_BIZ = new TOURGIA_BIZ();
+            tourdd_BIZ = new TOURDIAIDIEM_BIZ();
 
 
         }
@@ -79,8 +79,8 @@ namespace TOURDULICH_WIN.GUI
         private void loadtour()
         {
 
-            tour_bal = new TOUR_BAL();
-            IEnumerable lst_tour = tour_bal.GetList();
+            tour_BIZ = new TOUR_BIZ();
+            IEnumerable lst_tour = tour_BIZ.GetList();
             tour_biding.DataSource = lst_tour;
             datagv_tour.DataSource = tour_biding;
             datagv_tour.Columns["MaTour"].Visible = false;
@@ -88,7 +88,7 @@ namespace TOURDULICH_WIN.GUI
         private void laydulieutourtk()
         {
 
-            IEnumerable lst_tour = tour_bal.GetListTK();
+            IEnumerable lst_tour = tour_BIZ.GetListTK();
             tour_biding.DataSource = lst_tour;
             dtgv_tour_tk.DataSource = tour_biding;
             dtgv_tour_tk.Columns["MaTour"].Visible = false;
@@ -96,8 +96,8 @@ namespace TOURDULICH_WIN.GUI
 
         private void button8_Click(object sender, EventArgs e)
         {
-            TOURGIA_BAL bal = new TOURGIA_BAL();
-            IEnumerable LST_banggia = bal.GetList(data_giatour.Value.Date);
+            TOURGIA_BIZ BIZ = new TOURGIA_BIZ();
+            IEnumerable LST_banggia = BIZ.GetList(data_giatour.Value.Date);
             dtgv_banggia.DataSource = LST_banggia;
 
         }
@@ -140,7 +140,7 @@ namespace TOURDULICH_WIN.GUI
                 tdd.MaTour = Int32.Parse(datagv_tour[0, datagv_tour.CurrentRow.Index].Value.ToString());
                 tdd.MaDD = Int32.Parse(dtgv_diadiem[0, index].Value.ToString());
 
-                if (tourdd_bal.Insert(tdd))
+                if (tourdd_BIZ.Insert(tdd))
                 {
                     MessageBox.Show("Đã chèn");
                     dtgv_dd_tour.Rows.Add(tdd.MaTDD, dtgv_diadiem[1, index].Value, dtgv_diadiem[2, index].Value);
@@ -174,11 +174,11 @@ namespace TOURDULICH_WIN.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
+            
             DateTime new_giaap_date = date_doigiaad.Value.Date;
             DateTime new_giakt_date = date_doigiakt.Value.Date;
             DateTime old_bd = DateTime.Parse(dtgv_gia[1, dtgv_gia.Rows.Count - 1].Value.ToString());
             DateTime old_kt = DateTime.Parse(dtgv_gia[2, dtgv_gia.Rows.Count - 1].Value.ToString());
-
 
             if (new_giaap_date < DateTime.Now.Date || new_giaap_date >= old_bd.Date && new_giaap_date <= old_kt.Date || new_giakt_date < old_kt.Date || new_giaap_date < old_bd.Date) //gia nam trong khoang gia gan nhat da duoc luu o  db
             {
@@ -200,7 +200,7 @@ namespace TOURDULICH_WIN.GUI
                 tg.Gia = Int32.Parse(txt_giatien.Text.ToString());
                 tg.TGBD = new_giaap_date;
                 tg.TGKT = new_giakt_date;
-                if (tourgia_bal.Insert(tg))
+                if (tourgia_BIZ.Insert(tg))
                 {
                     dtgv_gia.Rows.Add(txt_giatien.Text, new_giaap_date, new_giakt_date);
                 }
@@ -227,7 +227,7 @@ namespace TOURDULICH_WIN.GUI
             cbb_noibd.Text = datagv_tour[4, index].Value.ToString();
             cbb_noikt.Text = datagv_tour[5, index].Value.ToString();
 
-            List<Tour_Gia> lst_tourgia = tourgia_bal.GetList(Int16.Parse(datagv_tour[0, index].Value.ToString()));
+            List<Tour_Gia> lst_tourgia = tourgia_BIZ.GetList(Int16.Parse(datagv_tour[0, index].Value.ToString()));
             dtgv_gia.Rows.Clear();
             foreach (Tour_Gia tourgia in lst_tourgia)
             {
@@ -236,7 +236,7 @@ namespace TOURDULICH_WIN.GUI
 
             }
             dtgv_gia.Columns[0].DefaultCellStyle.Format = "C0";
-            List<Tour_DiaDiem> lst_tourdd = tourdd_bal.GetList(Int16.Parse(datagv_tour[0, index].Value.ToString()));
+            List<Tour_DiaDiem> lst_tourdd = tourdd_BIZ.GetList(Int16.Parse(datagv_tour[0, index].Value.ToString()));
             if (dtgv_dd_tour.Rows.Count > 0)
             {
                 dtgv_dd_tour.Rows.Clear();
@@ -294,7 +294,7 @@ namespace TOURDULICH_WIN.GUI
             {
                 MessageBox.Show("Tên tour không được rỗng");
             }
-            else if (cbb_noibd_new.SelectedValue.ToString() == cbb_noibd_new.SelectedValue.ToString())
+            else if (cbb_noibd_new.SelectedValue.ToString() == cbb_noikt_new.SelectedValue.ToString())
             {
                 MessageBox.Show("Nơi khởi hành và nơi kết thúc tour không thể trùng nhau !");
             }
@@ -302,7 +302,7 @@ namespace TOURDULICH_WIN.GUI
             {
                 Tour t = new Tour();
                 LoaiHinhDL lh = new LoaiHinhDL();
-                //lh = lh_bal.First(Int16.Parse(cbb_loaihinh_new.SelectedValue.ToString());
+                //lh = lh_BIZ.First(Int16.Parse(cbb_loaihinh_new.SelectedValue.ToString());
                 t.Ten = txt_tentour_new.Text;
                 t.LoaiHinhDL = Int16.Parse(cbb_loaihinh_new.SelectedValue.ToString());
                 t.DiemBatDau = Int16.Parse(cbb_noibd_new.SelectedValue.ToString());
@@ -332,7 +332,7 @@ namespace TOURDULICH_WIN.GUI
                 t.Tour_DiaDiem = lst_tour_dd;
 
 
-                if (tour_bal.Insert(t))
+                if (tour_BIZ.Insert(t))
                 {
                     MessageBox.Show("CHEN THANH CONG");
                     foreach (var c in groupBox6.Controls)
@@ -382,7 +382,7 @@ namespace TOURDULICH_WIN.GUI
         {
             int index = dtgv_dd_tour.CurrentRow.Index;
             int matour_dd = Int32.Parse(dtgv_dd_tour[0, index].Value.ToString());
-            if (tourdd_bal.Delete(matour_dd))
+            if (tourdd_BIZ.Delete(matour_dd))
             {
                 dtgv_dd_tour.Rows.RemoveAt(index);
                 MessageBox.Show("Đã xóa!");
@@ -397,10 +397,10 @@ namespace TOURDULICH_WIN.GUI
             }
             else
             {
-                DANGKY_BAL dk_bal = new DANGKY_BAL();
+                DANGKY_BIZ dk_BIZ = new DANGKY_BIZ();
                 if (dtgv_tour_tk.CurrentRow.Index != null)
                 {
-                    IEnumerable lst_dk = dk_bal.lst_tk(date_ngaybdtk.Value.Date, date_ngaykttk.Value.Date, Int32.Parse(dtgv_tour_tk[0, dtgv_tour_tk.CurrentRow.Index].Value.ToString()));
+                    IEnumerable lst_dk = dk_BIZ.lst_tk(date_ngaybdtk.Value.Date, date_ngaykttk.Value.Date, Int32.Parse(dtgv_tour_tk[0, dtgv_tour_tk.CurrentRow.Index].Value.ToString()));
                     dtgv_ctdt.DataSource = lst_dk;
                 }
                 else
@@ -426,7 +426,7 @@ namespace TOURDULICH_WIN.GUI
             {
                 Tour t = new Tour();
                 LoaiHinhDL lh = new LoaiHinhDL();
-                //lh = lh_bal.First(Int16.Parse(cbb_loaihinh_new.SelectedValue.ToString());
+                //lh = lh_BIZ.First(Int16.Parse(cbb_loaihinh_new.SelectedValue.ToString());
                 t.MaTour = Int32.Parse(datagv_tour[0, datagv_tour.CurrentRow.Index].Value.ToString());
                 t.Ten = txt_tentour.Text;
                 t.LoaiHinhDL = Int16.Parse(cbb_loaihinh.SelectedValue.ToString());
@@ -462,7 +462,7 @@ namespace TOURDULICH_WIN.GUI
                 t.Tour_DiaDiem = lst_tour_dd;
 
 
-                if (tour_bal.Update(t))
+                if (tour_BIZ.Update(t))
                 {
                     MessageBox.Show("ĐÃ SỬA THÀNH CÔNG!!!");
                     loadtour();
@@ -496,7 +496,7 @@ namespace TOURDULICH_WIN.GUI
 
             int matour = Int32.Parse(datagv_tour[0, index].Value.ToString());
 
-            if (tour_bal.Delete(matour))
+            if (tour_BIZ.Delete(matour))
             {
                 MessageBox.Show("Xóa thành công");
                 datagv_tour.Rows.RemoveAt(index);
@@ -511,7 +511,7 @@ namespace TOURDULICH_WIN.GUI
 
         private void button9_Click(object sender, EventArgs e)
         {
-            IEnumerable lst_tour = tour_bal.GetListTK();
+            IEnumerable lst_tour = tour_BIZ.GetListTK();
             BindingSource tour_biding = new BindingSource();
             tour_biding.DataSource = lst_tour;
             dtgv_thhd.DataSource = tour_biding;
@@ -526,16 +526,16 @@ namespace TOURDULICH_WIN.GUI
             }
             else
             {
-                DOAN_BAL d_bal = new DOAN_BAL();
-                DANGKY_BAL dk_bal = new DANGKY_BAL();
+                DOAN_BIZ d_BIZ = new DOAN_BIZ();
+                DANGKY_BIZ dk_BIZ = new DANGKY_BIZ();
                 if (dtgv_thhd.CurrentRow.Index != null)
                 {
-                    int count = d_bal.count_doan(datetkhd_bd.Value.Date, datetkhd_kt.Value.Date, Int32.Parse(dtgv_thhd[0, dtgv_thhd.CurrentRow.Index].Value.ToString()));
+                    int count = d_BIZ.count_doan(datetkhd_bd.Value.Date, datetkhd_kt.Value.Date, Int32.Parse(dtgv_thhd[0, dtgv_thhd.CurrentRow.Index].Value.ToString()));
                     //dtgv_ctdt.DataSource = lst_dk;
 
                     label32.Text = count.ToString();
 
-                    int sum = dk_bal.get_sum_tk(datetkhd_bd.Value.Date, datetkhd_kt.Value.Date, Int32.Parse(dtgv_thhd[0, dtgv_thhd.CurrentRow.Index].Value.ToString()));
+                    int sum = dk_BIZ.get_sum_tk(datetkhd_bd.Value.Date, datetkhd_kt.Value.Date, Int32.Parse(dtgv_thhd[0, dtgv_thhd.CurrentRow.Index].Value.ToString()));
                     //dtgv_ctdt.DataSource = lst_dk;
                     label33.Text = sum.ToString();
                     label27.Text = dtgv_thhd[1, dtgv_thhd.CurrentRow.Index].Value.ToString();
@@ -570,7 +570,16 @@ namespace TOURDULICH_WIN.GUI
 
         private void textBox2_TextChanged_1(object sender, EventArgs e)
         {
-            IEnumerable lst_tour = tour_bal.Search(textBox2.Text);
+            IEnumerable lst_tour = tour_BIZ.Search(textBox2.Text);
+            BindingSource tour_biding = new BindingSource();
+            tour_biding.DataSource = lst_tour;
+            datagv_tour.DataSource = tour_biding;
+            datagv_tour.Columns["MaTour"].Visible = false;
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+            IEnumerable lst_tour = tour_BIZ.GetList();
             BindingSource tour_biding = new BindingSource();
             tour_biding.DataSource = lst_tour;
             datagv_tour.DataSource = tour_biding;

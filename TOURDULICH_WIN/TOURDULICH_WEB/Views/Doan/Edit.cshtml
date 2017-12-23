@@ -1,0 +1,548 @@
+﻿@{
+    ViewBag.Title = "Edit";
+    List<DATABASE.MODELS.ChucVu> dschucvu = (List<DATABASE.MODELS.ChucVu>)ViewBag.Chucvu;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model DATABASE.MODELS.Doan
+
+<h2>Tạo đoàn mới</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+               Sửa đoàn
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+
+            <form method="post" action="/Doan/Edit">
+                  <input id="madoan" class="form-control" required name="madoan" value="@Model.MaDoan">
+                <div class="form-group col-md-6">
+                    <label for="ten_doan">Tên đoàn:</label>
+                    <input id="ten_doan" class="form-control" required name="tendoan" value="@Model.Ten">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="ten_tour">Thuộc Tour :</label>
+                    <input id="ten_tour" class="form-control" type="text" required value="@Model.Tour.Ten">
+                    <input id="id_tour" type="hidden" name="id_tour" value="@Model.MaTour">
+                </div>
+                <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Ngày bắt đầu:</label>
+                    
+                        <div class='input-group date' id='datetimepicker8'>
+                            <input type='text' id="ngaybatdau" class="form-control" placeholder="dd/mm/yyyy" name="ngaybatdau" required value="@Model.NgayKH"/>
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+           
+                </div>
+                   <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Ngày kết thúc:</label>
+                    
+                        <div class='input-group date' id='datetimepicker9'>
+                            <input type='text' id="ngaykethuc" class="form-control" placeholder="dd/mm/yyyy" required name="ngayketthuc" value="@Model.NgayKT"/>
+                            <span class="input-group-addon">
+                                <span class="fa fa-calendar"></span>
+                            </span>
+                        </div>
+           
+                </div>
+                  <div class="form-group col-md-6">
+               
+                    <label for="ngaynhap">Mô tả Chi Tiết:</label><br />
+                    <textarea rows="4" cols="68" name="motachitiet">
+                            @Model.MoTaChiTiet
+                    </textarea>
+                </div>
+                
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Chọn trưởng đoàn:</label>
+                    <input type="text" class="form-control" id="truongdoan" required placeholder="Nhập vào tên trưởng đoàn" value="@Model.NhanVien.HoTen">
+                </div>
+
+                
+                <p>
+                    <input type="hidden" id="truongdoan_id"name="truongdoan_id" value="@Model.TruongDoan" />
+                </p>
+
+                <div class="col-md-12">
+
+                     <h3> Danh sách khách sạn</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên khách sạn</label>
+                    <input type="text" class="form-control" name="tenkhachsan"  id="tenkhachsan"  placeholder="Nhập vào tên khách sạn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" class="form-control" name="giaks" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  id="giaks" placeholder="Nhập vào giá khách sạn" >
+                </div>
+                      <div class="form-group col-md-12">                
+                      <label for="tentour">Địa chỉ </label>
+                    <input type="text" class="form-control" name="diachiks" id="diachiks" placeholder="Nhập vào địa chỉ khách sạn">
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dskhachsan-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên khách sạn</th>
+                            <th>Giá</th>
+                             <th>Địa chỉ</th>
+                            <th>Xóa</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dskhachsandoan-content">
+                            @foreach (var item in @Model.Doan_KhachSan)
+                            {
+                                <tr>
+                                 <td>@item.TenKS</td>
+                                <td>@item.Gia</td>
+                                <td>@item.DiaChi</td>
+                                 <td><a href="@Url.Action("DeleteKS", "Doan", new { maDKS = @item.MaDKS})" class="btnDelete btn btn-danger btn-xs"data-id="@item.MaDKS">Xóa</a></td>
+                                </tr>
+                              
+                            }
+                        </tbody>
+                        </table>
+                        </div>
+
+                    <div class="form-group col-md-12">
+                        <button class="btn btn-primary pull-right" id="themkhachsan">Thêm khách sạn</button>
+                    </div>
+               </div>
+                   <hr/>
+                     <div class="col-md-12">
+
+                     <h3> Danh sách quán ăn</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên quán ăn</label>
+                    <input type="text" class="form-control" name="tenquanan" id="tenquanan"  placeholder="Nhập vào tên quán ăn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" class="form-control" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  name="giaquan" id="giaquan" placeholder="Nhập vào giá quán ăn" >
+                </div>
+                      <div class="form-group col-md-12">                
+                      <label for="tentour">Địa chỉ </label>
+                    <input type="text" class="form-control" name="diachiqa" id="diachiqa" placeholder="Nhập vào địa chỉ quán ăn">
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dsquanan-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên quán ăn</th>
+                            <th>Giá</th>
+                             <th>Địa chỉ</th>
+                             <th>Xóa</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dsquanandoan-content">
+                              @foreach (var item in @Model.Doan_QuanAn)
+                            {
+                                <tr>
+                                 <td>@item.TenQA</td>
+                                <td>@item.Gia</td>
+                                <td>@item.DiaChi</td>
+                                 <td><a href="@Url.Action("DeleteQA", "Doan", new { maDQA = @item.MaDQA})" class="btnDelete btn btn-danger btn-xs"data-id="@item.MaDQA">Xóa</a></td>
+                                </tr>
+                              
+                            }
+                        </tbody>
+                        </table>
+
+                        </div>
+                           <div class="form-group col-md-12">
+                          <button class="btn btn-primary pull-right" id="themquanan">Thêm Quán Ăn</button>
+                    </div>                  
+               </div>
+                   <hr/>
+                  <div class="col-md-12">
+
+                     <h3> Danh sách phương tiện</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên phương tiện</label>
+                    <input type="text" class="form-control" name="tenquansan" id="tenphuongtien" placeholder="Nhập vào tên quán ăn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  class="form-control" name="giaquan" id="giaphuongtien" placeholder="Nhập vào giá quán ăn" >
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dsphuongtien-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên phương tiện</th>
+                            <th>Giá</th>
+                             <th>Xóa</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dsphuongtien-content">
+                              @foreach (var item in @Model.Doan_PhuongTien)
+                            {
+                                <tr>
+                                 <td>@item.TenPT</td>
+                                <td>@item.Gia</td>
+                                 <td><a href="@Url.Action("DeletePT", "Doan", new { maDPT = @item.MaDPT})" class="btnDelete btn btn-danger btn-xs"data-id="@item.MaDPT">Xóa</a></td>
+                                </tr>
+                              
+                            }
+
+                        </tbody>
+                        </table>
+
+                        </div>
+                            <div class="form-group col-md-12">
+                      <button class="btn btn-primary pull-right" id="themphuongtien">Thêm Phương Tiện</button>
+                    </div>
+               </div>
+                   <div class="col-md-12">
+
+                     <h3> Danh sách chi phí khác</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên chi phí khác</label>
+                    <input type="text" class="form-control" name="tenquansan" id="tencpkhac"  placeholder="Nhập vào tên quán ăn">
+                </div>
+                            <div class="form-group col-md-6">                
+                      <label for="tentour">Giá </label>
+                    <input type="text" onkeypress="return (event.charCode > 47 && event.charCode < 58)"  class="form-control" name="giaquan" id="giacpkhac" placeholder="Nhập vào giá quán ăn" >
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dscpkhac-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên chi phí khác</th>
+                            <th>Giá</th>
+                             <th>Xóa</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dscpkhac-content">
+                              @foreach (var item in @Model.Doan_ChiPhiKhac)
+                            {
+                                <tr>
+                                 <td>@item.TenCPKhac</td>
+                                <td>@item.Gia</td>
+                                 <td><a href="@Url.Action("DeleteCPK", "Doan", new { cpk = @item.MaDCPK})" class="btnDelete btn btn-danger btn-xs"data-id="@item.MaDCPK">Xóa</a></td>
+                                </tr>
+                              
+                            }
+                        </tbody>
+                        </table>
+
+                        </div>
+                          <div class="form-group col-md-12">
+                            <button class="btn btn-primary pull-right" id="themcpk">Thêm Chi Phí Khác</button>
+                    </div>
+               </div>
+
+                       <div class="col-md-12">
+
+                     <h3> Phân công</h3>
+                <div class="form-group col-md-6">                  
+                <label for="tentour">Tên nhân viên </label>
+                    <input type="text" class="form-control" name="tennhanvien_cv" id="tennhanvien_cv" placeholder="Nhập vào tên quán ăn">
+                </div>
+                                <input type="hidden" class="form-control" name="idnhanvien_cv" id="idnhanvien_cv" value="">
+                            <div class="form-group col-md-6">            
+                      <label for="tentour">Công việc </label>
+                      <select class="form-control" id="cv">
+                          @foreach (var cv in ViewBag.Chucvu)
+                          {        
+                              <option value="@cv.MaCV">@cv.Ten</option>    
+                          }
+                      </select>
+                </div>
+           
+                      <div class="col-md-12">
+                        <table class="table table-bordered table-hover" id="dsphancong-doan">
+                          <thead class="thead-default">
+                        <tr>
+                            <th>Tên nhân viên</th>
+                            <th>Công việc</th>
+                              <th>Xóa</th>
+                        </tr>
+                        </thead>
+                        <tbody id="dsphancong-content">
+                             @foreach (var item in @Model.PhanCong)
+                            {
+                                <tr>
+                                 <td>@item.NhanVien.HoTen</td>
+                                <td>@item.ChucVu.Ten</td>
+                                 <td><a href="@Url.Action("DeleteCV", "Doan", new { cv = @item.MaCV})" class="btnDelete btn btn-danger btn-xs"data-id="@item.MaPC">Xóa</a></td>
+                                </tr>
+                              
+                            }
+                        </tbody>
+                        </table>
+
+                        </div>
+                          <div class="form-group col-md-12">
+                            <button class="btn btn-primary pull-right" id="themcongviec">Thêm Phân công</button>
+                    </div>
+               </div>
+
+
+                <div class="form-group col-md-12">
+                    <input type="submit" class="btn btn-primary" value="Thêm" />
+                </div>
+            </form>
+        
+            </div>
+        </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+          
+            $("#truongdoan").autocomplete({
+                source: '/Doan/laydanhsachnhanvien',
+                dataType: "json",
+                select: function (event, ui) {
+                    $('#truongdoan_id').val(ui.item.value);
+                    event.preventDefault();
+                    $("#truongdoan").val(ui.item.label);
+                },
+                minLength: 1
+
+            });
+
+            $("#tennhanvien_cv").autocomplete({
+                source: '/Doan/laydanhsachnhanvien',
+                dataType: "json",
+                select: function (event, ui) {
+                    $('#idnhanvien_cv').val(ui.item.value);
+                    event.preventDefault();
+                    $("#tennhanvien_cv").val(ui.item.label);
+                },
+                minLength: 1
+
+            });
+
+
+
+            $("#ten_tour").autocomplete({
+                source: '/Tour/laydanhsachtour',
+                dataType: "json",
+                select: function (event, ui) {
+                    $('#id_tour').val(ui.item.value);
+                    event.preventDefault();
+                    $("#ten_tour").val(ui.item.label);
+                },
+                minLength: 1
+
+            });
+
+           
+            $('#datetimepicker8').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+            $('#datetimepicker9').datetimepicker({
+                icons: {
+                    time: "fa fa-clock-o",
+                    date: "fa fa-calendar",
+                    up: "fa fa-arrow-up",
+                    down: "fa fa-arrow-down"
+                },
+                format: 'DD/MM/YYYY'
+            });
+            
+            $("#themkhachsan").click(function (e) {
+                var tenks = $('#tenkhachsan').val();
+                var giaks = $('#giaks').val();
+                var dcks = $('#diachiks').val();
+                var md = $('#madoan').val();
+                console.log(tenks);
+                if (tenks == '') {
+                    alert('Tên khách sạn ko dc rỗng');
+                }
+                else if (giaks == '') {
+                    alert('Gía khách sạn ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddKhachSan_DB",
+                        data: {
+                            tenkhachsan: tenks, // < note use of 'this' here
+                            gia : giaks,
+                            diachiks: dcks,
+                            madoan : md,
+                        },
+                        success: function (result) {
+                            $('#dskhachsandoan-content').append(
+               "<tr>" +
+               "<td>" + tenks + "</td>" +
+               "<td>" + giaks + "</td>" +
+                "<td>" + dcks + "</td>")+
+                            "<td>" + "<a href='/Doan/DeletePT?maDKS=" + result + "'" + "class='btnDelete btn btn-danger btn-xs'>Xóa</a>" + "</td>";
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+            $("#themquanan").click(function (e) {
+                var tenqa = $('#tenquanan').val();
+                var giaqa = $('#giaquan').val();
+                var dcqa = $('#diachiqa').val();
+                var md = $('#madoan').val();
+                console.log(tenqa);
+                if (tenqa == '') {
+                    alert('Tên khách sạn ko dc rỗng');
+                }
+                else if (giaqa == '') {
+                    alert('Gía khách sạn ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddQuanAn_DB",
+                        data: {
+                            tenquanan: tenqa, // < note use of 'this' here
+                            gia: giaqa,
+                            dc: dcqa,
+                            madoan : md,
+                        },
+                        success: function (result) {
+                            $('#dsquanandoan-content').append(
+               "<tr>" +
+               "<td>" + tenqa + "</td>" +
+               "<td>" + giaqa + "</td>" +
+                "<td>" + dcqa + "</td>")+
+                 "<td>" + "<a href='/Doan/DeletePT?maDQA=" + result + "'" + "class='btnDelete btn btn-danger btn-xs'>Xóa</a>" + "</td>";
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+            
+
+
+            $("#themphuongtien").click(function (e) {
+                var tenpt = $('#tenphuongtien').val();
+                var giapt = $('#giaphuongtien').val();
+                var md = $('#madoan').val();
+                if (tenpt == '') {
+                    alert('Tên phương tiện ko dc rỗng');
+                }
+                else if (giapt == '') {
+                    alert('Gía phương tiện ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddPhuongTien_DB",
+                        data: {
+                            tenphuongtien: tenpt, // < note use of 'this' here
+                            gia: giapt,
+                            madoan : md,
+                        },
+                        success: function (result) {
+                            $('#dsphuongtien-content').append(
+               "<tr>" +
+               "<td>" + tenpt + "</td>" +
+               "<td>" + giapt + "</td>" +
+               "<td>" + "<a href='/Doan/DeletePT?maDPT="+result+"'"+"class='btnDelete btn btn-danger btn-xs'>Xóa</a>" + "</td>");
+                  },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+            $("#themcpk").click(function (e) {
+                var tencpk = $('#tencpkhac').val();
+                var giacpk = $('#giacpkhac').val();
+                var md = $('#madoan').val();
+                if (tencpk == '') {
+                    alert('Tên phương tiện ko dc rỗng');
+                }
+                else if (giacpk == '') {
+                    alert('Gía phương tiện ko dc rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddCPK_DB",
+                        data: {
+                            tencpk: tencpk, // < note use of 'this' here
+                            gia: giacpk,
+                            madoan : md,
+                        },
+                        success: function (result) {
+                            $('#dscpkhac-content').append(
+               "<tr>" +
+               "<td>" + tencpk + "</td>" +
+               "<td>" + giacpk + "</td>"+
+               "<td>" + "<a href='/Doan/DeletePT?cpk=" + result + "'" + "class='btnDelete btn btn-danger btn-xs'>Xóa</a>" + "</td>");
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+
+            $("#themcongviec").click(function (e) {
+                var idnv = $('#idnhanvien_cv').val();
+                var tennv = $('#tennhanvien_cv').val();
+                var idcv = $('#cv').val();
+                var md = $('#madoan').val();
+                var tencv = $("#cv option:selected").text();
+
+                if (idnv == '') {
+                    alert('Nhân viên không được rỗng');
+                }
+                else {
+                    e.preventDefault();
+                    $.ajax({
+                        type: "GET",
+                        url: "/Doan/AddCV_DB",
+                        data: {
+                            idnv: idnv, // < note use of 'this' here
+                            idcv: idcv,
+                            madoan : md,
+                        },
+                        success: function (result) {
+                            $('#dsphancong-content').append(
+               "<tr>" +
+               "<td>" + tennv + "</td>" +
+               "<td>" + tencv + "</td>")+
+                            "<td>" + "<a href='/Doan/DeletePT?cv=" + result + "'" + "class='btnDelete btn btn-danger btn-xs'>Xóa</a>" + "</td>";
+                        },
+                        error: function (result) {
+                            alert('Có lỗi xảy ra !!!');
+                        }
+                    });
+                }
+            });
+
+
+
+         
+        });
+    </script>
+}

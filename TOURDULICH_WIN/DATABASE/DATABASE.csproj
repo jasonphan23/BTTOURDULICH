@@ -51,70 +51,71 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MODELS\ChucVu.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\CTDoan.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DangKi.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\DiaDiem.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_ChiPhiKhac.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_KhachSan.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_PhuongTien.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Doan_QuanAn.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\KhachHang.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\LoaiHinhDL.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\NhanVien.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\PhanCong.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\PhatHanhSachModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhatHanhSachModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\PhatHanhSachModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="MODELS\PhatHanhSachModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PhatHanhSachModel.edmx</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\TinhThanh.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MODELS\TourDuLichModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourDuLichModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\TourDuLichModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\TourDuLichModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MODELS\TourGiaViewModel.cs" />
     <Compile Include="MODELS\Tour_DiaDiem.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MODELS\Tour_Gia.cs">
-      <DependentUpon>PhatHanhSachModel.tt</DependentUpon>
+      <DependentUpon>TourDuLichModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="REPOSITORY\Database.cs" />
@@ -123,12 +124,12 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="MODELS\PhatHanhSachModel.edmx">
+    <EntityDeploy Include="MODELS\TourDuLichModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PhatHanhSachModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>TourDuLichModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="MODELS\PhatHanhSachModel.edmx.diagram">
-      <DependentUpon>PhatHanhSachModel.edmx</DependentUpon>
+    <None Include="MODELS\TourDuLichModel.edmx.diagram">
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -137,15 +138,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="MODELS\PhatHanhSachModel.Context.tt">
+    <Content Include="MODELS\TourDuLichModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhatHanhSachModel.edmx</DependentUpon>
-      <LastGenOutput>PhatHanhSachModel.Context.cs</LastGenOutput>
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
+      <LastGenOutput>TourDuLichModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="MODELS\PhatHanhSachModel.tt">
+    <Content Include="MODELS\TourDuLichModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PhatHanhSachModel.edmx</DependentUpon>
-      <LastGenOutput>PhatHanhSachModel.cs</LastGenOutput>
+      <DependentUpon>TourDuLichModel.edmx</DependentUpon>
+      <LastGenOutput>TourDuLichModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

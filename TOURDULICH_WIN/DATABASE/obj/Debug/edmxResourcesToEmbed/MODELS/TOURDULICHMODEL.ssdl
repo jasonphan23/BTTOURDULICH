@@ -171,7 +171,9 @@
     <Property Name="TrangThai" Type="bit" Nullable="false" />
   </EntityType>
   <Association Name="FK__CTDoan__MaDoan__286302EC">
-    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="CTDoan" Type="Self.CTDoan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doan">
@@ -231,7 +233,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Doan_ChiP__MaDoa__403A8C7D">
-    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Doan_ChiPhiKhac" Type="Self.Doan_ChiPhiKhac" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doan">
@@ -243,7 +247,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Doan_Phuo__MaDoa__3D5E1FD2">
-    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Doan_PhuongTien" Type="Self.Doan_PhuongTien" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doan">
@@ -255,7 +261,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__Doan_Quan__MaDoa__3A81B327">
-    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Doan_QuanAn" Type="Self.Doan_QuanAn" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doan">
@@ -267,7 +275,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__PhanCong__MaCV__30F848ED">
-    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1" />
+    <End Role="ChucVu" Type="Self.ChucVu" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="ChucVu">
@@ -279,7 +289,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__PhanCong__MaDoan__2F10007B">
-    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="PhanCong" Type="Self.PhanCong" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doan">
@@ -387,7 +399,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_DoanKS">
-    <End Role="Doan" Type="Self.Doan" Multiplicity="1" />
+    <End Role="Doan" Type="Self.Doan" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Doan_KhachSan" Type="Self.Doan_KhachSan" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Doan">
